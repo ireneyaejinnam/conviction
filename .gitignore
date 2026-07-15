@@ -5,4 +5,4 @@ __pycache__/
 data/filings/
 data/chroma/
 .DS_Store
-.ipynb_checkpoints/
+.ipynb_checkpoints/data/transcripts/
