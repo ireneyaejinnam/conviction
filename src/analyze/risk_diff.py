@@ -8,16 +8,17 @@ from src.ingest.parser import parse_filing
 MODEL = "gpt-4o"
 MAX_CHARS = 40_000   # ~15k tokens/section; keeps two years inside gpt-4o's window
 
-SYSTEM = """You are a financial analyst comparing two years of a company's 10-K risk factors (Item 1A).
+def _system_prompt(current_date, prior_date):
+    return f"""You are a financial analyst comparing two years of a company's 10-K risk factors (Item 1A).
 You are given the Item 1A text for a CURRENT year and a PRIOR year.
 Produce a structured diff using ONLY the provided text. Do not invent risks.
 
 Return STRICT JSON (no markdown, no prose) with exactly this schema:
-{
-  "new":     [{"risk": "...", "evidence": "short paraphrase", "year": "<current filing_date>"}],
-  "removed": [{"risk": "...", "evidence": "short paraphrase", "year": "<prior filing_date>"}],
-  "changed": [{"risk": "...", "what_changed": "...", "year_current": "<date>", "year_prior": "<date>"}]
-}
+{{
+  "new":     [{{"risk": "...", "evidence": "short paraphrase", "year": "{current_date}"}}],
+  "removed": [{{"risk": "...", "evidence": "short paraphrase", "year": "{prior_date}"}}],
+  "changed": [{{"risk": "...", "what_changed": "...", "year_current": "{current_date}", "year_prior": "{prior_date}"}}]
+}}
 Every item must cite the year (filing_date) it came from. If a category is empty, return []."""
 
 
@@ -51,7 +52,7 @@ def risk_diff(ticker, model=MODEL):
     resp = client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": SYSTEM},
+            {"role": "system", "content": _system_prompt(current.filing_date, prior.filing_date)},
             {"role": "user", "content": user},
         ],
         response_format={"type": "json_object"},   # forces valid JSON (needs "json" in prompt — it's there)

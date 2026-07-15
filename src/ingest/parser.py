@@ -204,6 +204,14 @@ def parse_filing(filepath: str | Path, ticker: str) -> list[Section]:
     raw = filepath.read_text(encoding="utf-8", errors="replace")
 
     filing_date = _extract_filing_date(raw)
+
+    # primary-document.html has no SGML header; try sibling full-submission.txt
+    if not filing_date and filepath.name != "full-submission.txt":
+        fs = filepath.parent / "full-submission.txt"
+        if fs.exists():
+            filing_date = _extract_filing_date(
+                fs.read_text(encoding="utf-8", errors="replace")
+            )
     main_html = _extract_main_document(raw)
     text = _html_to_text(main_html)
 
