@@ -112,3 +112,17 @@ def embed_and_store(chunks, batch_size=100):
             metadatas=metas,
             ids=ids,
         )
+
+
+def remove_stale_chunks(ticker: str, doc_type: str, keep_ids: set[str]) -> int:
+    """
+    Delete a ticker's chunks of this doc_type that aren't in keep_ids:
+    older filings, and leftover tail chunks if a filing now chunks shorter.
+    Returns the number deleted.
+    """
+    col = get_collection()
+    existing = col.get(where={"$and": [{"ticker": ticker}, {"doc_type": doc_type}]})["ids"]
+    stale = [i for i in existing if i not in keep_ids]
+    if stale:
+        col.delete(ids=stale)
+    return len(stale)

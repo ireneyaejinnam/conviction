@@ -17,7 +17,9 @@ from src.ingest.edgar import fetch_filings
 from src.ingest.parser import parse_filing
 
 MODEL = "gpt-4o"
-MAX_CHARS = 40_000   # ~15k tokens/section; keeps two years inside gpt-4o's window
+# Guard only: every watchlist Item 1A (largest: AMD, 131k chars / 23k gpt-4o
+# tokens) is sent in full, so the diff sees the whole section in both years.
+MAX_CHARS = 150_000
 
 def _system_prompt(current_date, prior_date):
     return f"""You are a financial analyst comparing two years of a company's 10-K risk factors (Item 1A).

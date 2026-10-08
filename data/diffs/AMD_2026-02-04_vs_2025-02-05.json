@@ -5,54 +5,72 @@
   "diff": {
     "new": [
       {
-        "risk": "Strategic partnerships and collaborations increasing competition",
-        "evidence": "Nvidia's partnership and investment in Intel to partner on new data center and client platform products",
+        "risk": "Partner and Investment in September 2025 between Nvidia and Intel",
+        "evidence": "Nvidia announced a partnership and investment in Intel to partner on new data center and client platform products.",
         "year": "2026-02-04"
       },
       {
-        "risk": "Climate change may have an impact on our business",
-        "evidence": "Stated as an operational and technology risk",
+        "risk": "AI Diffusion Rule Replacement",
+        "evidence": "In May 2025, BIS announced its intention to rescind the AI Diffusion Rule and issue replacement rules.",
         "year": "2026-02-04"
       },
       {
-        "risk": "Impact of strategic collaborations by competitors",
-        "evidence": "Nvidia-Intel partnership may increase competition",
+        "risk": "ZT Systems Acquisition Completion (March 2025)",
+        "evidence": "We completed our acquisition of ZT Systems in March 2025.",
+        "year": "2026-02-04"
+      },
+      {
+        "risk": "2025 Export Restrictions and $800 Million Charge",
+        "evidence": "In April 2025, new license requirements impacted our MI308 products, resulting in $800 million charges.",
         "year": "2026-02-04"
       }
     ],
     "removed": [
       {
-        "risk": "Intel and Nvidia's aggressive business practices limiting competition",
-        "evidence": "Mentioned separately in prior year",
+        "risk": "Domination of Intel and Nvidia in respective markets",
+        "evidence": "Intel and Nvidia's dominance were significant risks in the previous year.",
         "year": "2025-02-05"
       },
       {
-        "risk": "Acquisition of ZT Systems",
-        "evidence": "Mentioned in context of merger and acquisition risks in prior year",
-        "year": "2025-02-05"
-      },
-      {
-        "risk": "Government actions affecting exports",
-        "evidence": "Not limited to export regulations as per prior year",
+        "risk": "ZT Systems Acquisition Pending",
+        "evidence": "The risk of pending acquisition completion of ZT Systems was mentioned.",
         "year": "2025-02-05"
       }
     ],
     "changed": [
       {
-        "risk": "Environmental and corporate responsibility regulations",
-        "what_changed": "Expanded to include evolving expectations from stakeholders and the responsible use of AI",
+        "risk": "Performance and demands for generative AI solutions",
+        "what_changed": "Increased attention to AI demand stability with generative AI solutions, with focus on AI accelerators since 2024.",
         "year_current": "2026-02-04",
         "year_prior": "2025-02-05"
       },
       {
-        "risk": "Client and Gaming segment revenue factors",
-        "what_changed": "Expanded to cover adoption of AI PCs and past volatility due to cryptocurrency mining",
+        "risk": "Effects of Climate Change",
+        "what_changed": "The recognition that climate change may have both immediate and long-term impacts, including on data centers and supply chain costs.",
         "year_current": "2026-02-04",
         "year_prior": "2025-02-05"
       },
       {
-        "risk": "Competition in semiconductor industry",
-        "what_changed": "Competition not specifically tied to Intel and Nvidia's practices, more focus on developing Arm ecosystem",
+        "risk": "Exchange Rate Fluctuations",
+        "what_changed": "Additional detail regarding the impact of currency fluctuations on profitability and sales to international customers.",
+        "year_current": "2026-02-04",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Environmental Compliance Costs",
+        "what_changed": "Increased costs associated with potential new climate-related regulations and compliance requirements mentioned in more detail.",
+        "year_current": "2026-02-04",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Legal and reputational risks of AI",
+        "what_changed": "Expanded discussion on the risks associated with AI adoption, including reputational and compliance costs.",
+        "year_current": "2026-02-04",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Export Compliance Impact on Supply Chain",
+        "what_changed": "Discussion expanded on the potential significant impact on supply chain and license compliance requirements, especially towards China.",
         "year_current": "2026-02-04",
         "year_prior": "2025-02-05"
       }

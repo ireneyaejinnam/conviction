@@ -5,49 +5,82 @@
   "diff": {
     "new": [
       {
-        "risk": "Investment in AI infrastructure and custom TPUs",
-        "evidence": "Expanding investments in building AI-optimized infrastructure and custom TPUs.",
+        "risk": "AI affecting the advertising industry",
+        "evidence": "AI reshaping advertising delivery and formats",
         "year": "2026-02-05"
       },
       {
-        "risk": "Regulatory risks with specific sector customers in Google Cloud",
-        "evidence": "Business with financial services, healthcare, and public sector customers presents regulatory risks.",
+        "risk": "Manufacturing and supply chain constraints for AI",
+        "evidence": "Constraints on power, water, and land; limited suppliers for AI chips",
         "year": "2026-02-05"
       },
       {
-        "risk": "Challenges related to sovereign operating requirements",
-        "evidence": "Evolving laws and regulations may require capital investments and new partnerships.",
+        "risk": "Financial services regulatory compliance risk",
+        "evidence": "Google Cloud business with financial services, healthcare, and public sector customers",
         "year": "2026-02-05"
       },
       {
-        "risk": "Energy constraints affecting AI and cloud services",
-        "evidence": "Constrained energy supply globally due to demand for AI compute.",
+        "risk": "Intellectual property protection challenges worldwide",
+        "evidence": "Patents may be invalid and inadequate protection in some countries",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Ongoing DOJ antitrust lawsuits",
+        "evidence": "DOJ filed lawsuits about advertising technology and practices",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Geopolitical tensions affecting access to key resources",
+        "evidence": "Energy constraints due to AI demand and geopolitical tensions or conflicts",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Future international tax reforms",
+        "evidence": "OECD initiatives for a global minimum tax",
         "year": "2026-02-05"
       }
     ],
     "removed": [
       {
-        "risk": "General risk related to phasing out third-party cookies",
-        "evidence": "Previously mentioned user choice model and discussions with regulators.",
+        "risk": "Transition of operations to Google platforms",
+        "evidence": "Risks related to acquisitions and integrating operations",
         "year": "2025-02-05"
       }
     ],
     "changed": [
       {
-        "risk": "Advertising revenue dependency",
-        "what_changed": "Current year cites over 70% revenue from online ads in 2025, down from over 75% in 2024.",
+        "risk": "Revenue from online advertising",
+        "what_changed": "Revenue percentage from advertising declined from more than 75% in 2024 to more than 70% in 2025",
         "year_current": "2026-02-05",
         "year_prior": "2025-02-05"
       },
       {
-        "risk": "International revenue proportion",
-        "what_changed": "International revenues accounted for approximately 52% in 2025, up from 51% in 2024.",
+        "risk": "Expansion of AI investment",
+        "what_changed": "From integrating AI capabilities into services to developing generative AI models and focusing on AI platforms",
         "year_current": "2026-02-05",
         "year_prior": "2025-02-05"
       },
       {
-        "risk": "Supply chain risks",
-        "what_changed": "Increased emphasis on committed high penalty contracts and competitive constraints on AI hardware supply.",
+        "risk": "Data privacy laws and compliance",
+        "what_changed": "New emphasis on AI-related data issues like AI training data and responsiveness to evolving regulations",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Content moderation regulations",
+        "what_changed": "Emphasis on new regulations making it harder to maintain content quality or potentially impinge content access rights",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Antitrust scrutiny and lawsuits",
+        "what_changed": "Updates on ongoing DOJ and state lawsuits and the specific remedies proposed",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Global minimum tax policies",
+        "what_changed": "Further detail provided on the OECD negotiations regarding a 15% minimum tax rate",
         "year_current": "2026-02-05",
         "year_prior": "2025-02-05"
       }

@@ -62,6 +62,17 @@ TARGET_ITEMS = {
 # Item 1B follows 1A; Item 2 follows 1; Item 7A follows 7; Item 9 follows 8.
 ANCHOR_ITEMS = ["Item 1B", "Item 2", "Item 7A", "Item 9"]
 
+# Some filers (e.g. NVDA) make Item 8 a one-line cross-reference and put the
+# financial statements under Item 15 in Part IV. An Item 8 that short can't
+# hold the statements, so we also emit Item 15, bounded by Item 16 (or the
+# exhibit index / end of document).
+ITEM_15 = ("Item 15", "Exhibits and Financial Statement Schedules")
+CROSS_REF_MAX_CHARS = 2_000
+
+# Page furniture repeated on every page. "Item N" lines are only treated as
+# furniture when bare and repeated (see _furniture_lines).
+_FURNITURE_RE = re.compile(r"(?i)^(table of contents|part [ivx]+|item \d+[a-z]?(\s*,\s*\d+[a-z]?)*)$")
+
 
 # ---------------------------------------------------------------------------
 # Stage 1: pull the main 10-K document out of the SGML container
@@ -115,11 +126,20 @@ def _extract_filing_date(raw: str) -> str:
 # Stage 2: HTML -> clean text
 # ---------------------------------------------------------------------------
 
+# Tags that end a line of text. Inline tags (span, font, b, a, ...) are joined
+# with no separator: filers often split a single word across spans
+# ("RIS</span><span>K FACTORS", "202</span><span>6"), and a blanket
+# separator turns those into broken words and numbers.
+_BLOCK_TAGS = ["p", "div", "br", "tr", "li", "table", "ul", "ol", "hr",
+               "h1", "h2", "h3", "h4", "h5", "h6"]
+_CELL_TAGS = ["td", "th"]
+
+
 def _html_to_text(html: str) -> str:
     """
-    Convert filing HTML to plain text. Uses a separator so that block-level
-    elements don't get concatenated into run-on words, which would break
-    Item-header detection.
+    Convert filing HTML to plain text. Block-level elements end a line so
+    Item headers start their own line; table cells are separated by a
+    space; inline elements are joined as-is.
     """
     soup = BeautifulSoup(html, "html.parser")
 
@@ -127,8 +147,12 @@ def _html_to_text(html: str) -> str:
     for tag in soup(["script", "style"]):
         tag.decompose()
 
-    # get_text with a separator keeps token boundaries intact.
-    text = soup.get_text(separator="\n")
+    for tag in soup.find_all(_BLOCK_TAGS):
+        tag.insert_after("\n")
+    for tag in soup.find_all(_CELL_TAGS):
+        tag.insert_after(" ")
+
+    text = soup.get_text()
 
     # Normalize whitespace: collapse runs of blank lines, strip trailing
     # spaces, and replace the non-breaking spaces filings love to use.
@@ -160,6 +184,53 @@ def _item_pattern(item_id: str) -> re.Pattern:
     return re.compile(pattern)
 
 
+def _header_line(text: str, match: re.Match) -> str:
+    """The stripped line a header match sits on (the pattern may start on blank lines)."""
+    start = text.lower().find("item", match.start())
+    end = text.find("\n", start)
+    return text[start:end if end != -1 else len(text)].strip()
+
+
+def _drop_running_headers(matches: list[re.Match], text: str, item_id: str) -> list[re.Match]:
+    """
+    Some filers (e.g. MSFT) print the current item as a bare page header
+    ("Item 1A" alone on a line) at the top of every page. Taking the last
+    match would then land on the section's final page. A bare line that
+    repeats is a page header, not the section start, so drop those.
+    """
+    bare = [m for m in matches if _header_line(text, m).lower() == item_id.lower()]
+    if len(bare) < 3:
+        return matches
+    return [m for m in matches if m not in bare]
+
+
+def _furniture_lines(text: str) -> set[str]:
+    """Bare page-header/footer lines that repeat 3+ times in the document."""
+    counts: dict[str, int] = {}
+    for line in text.split("\n"):
+        line = line.strip()
+        if line and len(line) <= 40 and _FURNITURE_RE.match(line):
+            counts[line] = counts.get(line, 0) + 1
+    return {line for line, n in counts.items() if n >= 3}
+
+
+def _strip_furniture(body: str, furniture: set[str]) -> str:
+    kept = [line for line in body.split("\n") if line.strip() not in furniture]
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(kept)).strip()
+
+
+def _item_15_section_text(text: str) -> str | None:
+    """Text of Item 15 (to Item 16 or the exhibit index), or None if absent."""
+    starts = list(_item_pattern("Item 15").finditer(text))
+    if not starts:
+        return None
+    start = starts[-1].start()
+    ends = [m.start() for m in _item_pattern("Item 16").finditer(text) if m.start() > start]
+    ends += [m.start() for m in re.finditer(r"(?im)^\s*exhibit index\s*$", text) if m.start() > start]
+    end = min(ends) if ends else len(text)
+    return text[start:end]
+
+
 def _find_all_item_positions(text: str) -> list[tuple[int, str]]:
     """
     Find character positions of every target + anchor item header in the
@@ -174,7 +245,7 @@ def _find_all_item_positions(text: str) -> list[tuple[int, str]]:
     positions: list[tuple[int, str]] = []
 
     for item_id in all_items:
-        matches = list(_item_pattern(item_id).finditer(text))
+        matches = _drop_running_headers(list(_item_pattern(item_id).finditer(text)), text, item_id)
         if matches:
             # Take the last occurrence (skips the table-of-contents hit).
             positions.append((matches[-1].start(), item_id))
@@ -216,6 +287,7 @@ def parse_filing(filepath: str | Path, ticker: str) -> list[Section]:
     text = _html_to_text(main_html)
 
     positions = _find_all_item_positions(text)
+    furniture = _furniture_lines(text)
 
     # Build a lookup of where each item starts, so for a given target item
     # we can find the next header (of ANY kind) to mark its end.
@@ -227,7 +299,7 @@ def parse_filing(filepath: str | Path, ticker: str) -> list[Section]:
 
         # End = start of the next header in the sorted list, or EOF.
         end = positions[i + 1][0] if i + 1 < len(positions) else len(text)
-        body = text[start:end].strip()
+        body = _strip_furniture(text[start:end], furniture)
 
         sections.append(
             Section(
@@ -240,5 +312,21 @@ def parse_filing(filepath: str | Path, ticker: str) -> list[Section]:
                 source_path=str(filepath),
             )
         )
+
+    item_8 = next((s for s in sections if s.item == "Item 8"), None)
+    if item_8 and len(item_8.text) < CROSS_REF_MAX_CHARS:
+        item_15 = _item_15_section_text(text)
+        if item_15:
+            sections.append(
+                Section(
+                    ticker=ticker.upper(),
+                    filing_type="10-K",
+                    filing_date=filing_date,
+                    item=ITEM_15[0],
+                    item_title=ITEM_15[1],
+                    text=_strip_furniture(item_15, furniture),
+                    source_path=str(filepath),
+                )
+            )
 
     return sections
