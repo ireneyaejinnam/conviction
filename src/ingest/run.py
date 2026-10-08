@@ -1,5 +1,5 @@
 """
-Reusable ingest entry points: one filing or transcript → chunks in Chroma.
+Reusable ingest entry points: one filing → chunks in Chroma.
 """
 from src.ingest.edgar import fetch_filing
 from src.ingest.parser import parse_filing

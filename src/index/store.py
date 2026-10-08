@@ -85,8 +85,7 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
 # ---------------------------------------------------------------------------
 
 def _chunk_id(meta):
-    # Stable id. doc_type is included so filings & transcripts can never collide.
-    # (doc_type doesn't exist until Wednesday; .get(...,'10-K') keeps this safe today.)
+    # Stable id. doc_type is included so different document types can never collide.
     return (
         f"{meta['ticker']}_{meta.get('doc_type', '10-K')}_"
         f"{meta.get('filing_date', 'na')}_{meta['item']}_{meta['chunk_idx']}"

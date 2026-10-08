@@ -74,19 +74,10 @@ def fetch_filing(
 
     return submission_file
 
-def _user_agent():
-    # .env format: EDGAR_USER_AGENT=Yaejin Nam your.email@domain.com
-    ua = os.environ.get("EDGAR_USER_AGENT", "")
-    parts = ua.rsplit(" ", 1)
-    if len(parts) == 2:
-        return parts[0], parts[1]              # (company/name, email)
-    return "Conviction Research", "research@example.com"
-
-
 def fetch_recent_filings(ticker, filing_type="10-K", limit=2, dest=FILINGS_DIR):
     """Download the `limit` most recent filings; return list of primary-doc paths."""
     ticker = ticker.upper().strip()
-    name, email = _user_agent()
+    name, email = parse_user_agent(os.environ.get("EDGAR_USER_AGENT", ""))
     dl = Downloader(name, email, str(dest))
     dl.get(filing_type, ticker, limit=limit, download_details=True)
 
