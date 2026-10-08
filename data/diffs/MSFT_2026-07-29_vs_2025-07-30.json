@@ -1,0 +1,38 @@
+{
+  "ticker": "MSFT",
+  "current_year": "2026-07-29",
+  "prior_year": "2025-07-30",
+  "diff": {
+    "new": [
+      {
+        "risk": "Pandemics and related governmental and economic responses",
+        "evidence": "Extent of impact depends on pandemic duration, governmental, business, individual actions, and economic activity impact",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Climate change and environmental regulations",
+        "evidence": "Unclear long-term effects on global economy and IT industry; potential increased costs for powering and cooling hardware",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Global operational and economic risks",
+        "evidence": "Geopolitical risks, international trade restrictions, and currency fluctuations",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "International growth strategy risks",
+        "evidence": "Risks due to deterioration of conditions in certain markets and emerging nationalist and protectionist trends",
+        "year": "2026-07-29"
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "risk": "Attract and retain talented employees",
+        "what_changed": "No substantive changes; risk remains the same across both years",
+        "year_current": "2026-07-29",
+        "year_prior": "2025-07-30"
+      }
+    ]
+  }
+}

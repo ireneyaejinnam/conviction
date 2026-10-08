@@ -1,0 +1,35 @@
+{
+  "ticker": "NVDA",
+  "current_year": "2026-02-25",
+  "prior_year": "2025-02-26",
+  "diff": {
+    "new": [],
+    "removed": [],
+    "changed": [
+      {
+        "risk": "Risks Related to Demand, Supply, and Manufacturing - Long manufacturing lead times and uncertain supply and component availability.",
+        "what_changed": "The phrase 'component availability' was changed to 'capacity availability', and new details were added elaborating on geopolitical tensions and expanded supply chain management.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "Risks Related to Our Industry and Markets - Enterprise customers and cloud services.",
+        "what_changed": "The specific mention of 'NVIDIA DGX Cloud services' was replaced with more general 'multi-year cloud service agreements'. New details describe expanded cloud offerings and standalone software solutions not just limited to DGX Cloud.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "International sales and operations.",
+        "what_changed": "The portion of revenue generated from sales outside the United States decreased from 53% to 31%, reflecting a shift in sales distribution.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "Product transitioning and architectural transitions.",
+        "what_changed": "Increased frequency and complexity of product transitions were emphasized with more detailed explanation about product cadence and complexity management.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      }
+    ]
+  }
+}

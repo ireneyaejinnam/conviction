@@ -1,7 +1,7 @@
 """
 Parse a downloaded SEC 10-K filing into structured Section objects.
 
-Input: full-submission.txt path returned by fetch_filing().
+Input: full-submission.txt path returned by fetch_filings().
 Output: list of Section objects for Items 1, 1A, 7, and 8.
 
 Two-stage problem:
@@ -192,7 +192,7 @@ def parse_filing(filepath: str | Path, ticker: str) -> list[Section]:
     Parse a downloaded 10-K into Section objects for Items 1, 1A, 7, 8.
 
     Args:
-        filepath: path to full-submission.txt (from fetch_filing).
+        filepath: path to full-submission.txt (from fetch_filings).
         ticker: stock ticker, used for metadata.
 
     Returns:

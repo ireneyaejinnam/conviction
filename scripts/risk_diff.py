@@ -1,13 +1,16 @@
 import sys
 import json
 from dotenv import load_dotenv
-from src.analyze.risk_diff import risk_diff
+from src.analyze.risk_diff import load_risk_diff
 
 load_dotenv()
 
 if __name__ == "__main__":
-    ticker = sys.argv[1] if len(sys.argv) > 1 else "NVDA"
-    result = risk_diff(ticker)
+    ticker = (sys.argv[1] if len(sys.argv) > 1 else "NVDA").upper()
+    result = load_risk_diff(ticker)
+    if result is None:
+        print(f"No precomputed diff for {ticker}. Run: python -m scripts.ingest_watchlist")
+        sys.exit(1)
     d = result["diff"]
 
     print(f"\nRISK-FACTOR DIFF — {result['ticker']} "

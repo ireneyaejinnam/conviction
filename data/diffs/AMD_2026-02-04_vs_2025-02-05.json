@@ -1,0 +1,61 @@
+{
+  "ticker": "AMD",
+  "current_year": "2026-02-04",
+  "prior_year": "2025-02-05",
+  "diff": {
+    "new": [
+      {
+        "risk": "Strategic partnerships and collaborations increasing competition",
+        "evidence": "Nvidia's partnership and investment in Intel to partner on new data center and client platform products",
+        "year": "2026-02-04"
+      },
+      {
+        "risk": "Climate change may have an impact on our business",
+        "evidence": "Stated as an operational and technology risk",
+        "year": "2026-02-04"
+      },
+      {
+        "risk": "Impact of strategic collaborations by competitors",
+        "evidence": "Nvidia-Intel partnership may increase competition",
+        "year": "2026-02-04"
+      }
+    ],
+    "removed": [
+      {
+        "risk": "Intel and Nvidia's aggressive business practices limiting competition",
+        "evidence": "Mentioned separately in prior year",
+        "year": "2025-02-05"
+      },
+      {
+        "risk": "Acquisition of ZT Systems",
+        "evidence": "Mentioned in context of merger and acquisition risks in prior year",
+        "year": "2025-02-05"
+      },
+      {
+        "risk": "Government actions affecting exports",
+        "evidence": "Not limited to export regulations as per prior year",
+        "year": "2025-02-05"
+      }
+    ],
+    "changed": [
+      {
+        "risk": "Environmental and corporate responsibility regulations",
+        "what_changed": "Expanded to include evolving expectations from stakeholders and the responsible use of AI",
+        "year_current": "2026-02-04",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Client and Gaming segment revenue factors",
+        "what_changed": "Expanded to cover adoption of AI PCs and past volatility due to cryptocurrency mining",
+        "year_current": "2026-02-04",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Competition in semiconductor industry",
+        "what_changed": "Competition not specifically tied to Intel and Nvidia's practices, more focus on developing Arm ecosystem",
+        "year_current": "2026-02-04",
+        "year_prior": "2025-02-05"
+      }
+    ]
+  }
+}

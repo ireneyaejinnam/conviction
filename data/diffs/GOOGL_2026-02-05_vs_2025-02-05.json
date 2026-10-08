@@ -1,0 +1,56 @@
+{
+  "ticker": "GOOGL",
+  "current_year": "2026-02-05",
+  "prior_year": "2025-02-05",
+  "diff": {
+    "new": [
+      {
+        "risk": "Investment in AI infrastructure and custom TPUs",
+        "evidence": "Expanding investments in building AI-optimized infrastructure and custom TPUs.",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Regulatory risks with specific sector customers in Google Cloud",
+        "evidence": "Business with financial services, healthcare, and public sector customers presents regulatory risks.",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Challenges related to sovereign operating requirements",
+        "evidence": "Evolving laws and regulations may require capital investments and new partnerships.",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Energy constraints affecting AI and cloud services",
+        "evidence": "Constrained energy supply globally due to demand for AI compute.",
+        "year": "2026-02-05"
+      }
+    ],
+    "removed": [
+      {
+        "risk": "General risk related to phasing out third-party cookies",
+        "evidence": "Previously mentioned user choice model and discussions with regulators.",
+        "year": "2025-02-05"
+      }
+    ],
+    "changed": [
+      {
+        "risk": "Advertising revenue dependency",
+        "what_changed": "Current year cites over 70% revenue from online ads in 2025, down from over 75% in 2024.",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "International revenue proportion",
+        "what_changed": "International revenues accounted for approximately 52% in 2025, up from 51% in 2024.",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Supply chain risks",
+        "what_changed": "Increased emphasis on committed high penalty contracts and competitive constraints on AI hardware supply.",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      }
+    ]
+  }
+}
