@@ -22,7 +22,7 @@ def ask(question, k=8, ticker=None, doc_type=None):
         return {"answer": "Please provide a question.", "sources_used": [], "ok": False}
 
     if len(question) > 1000:
-        return {"answer": "Quesion too long - try under 1000 chars.", "sources_used": [], "ok": False}
+        return {"answer": "Question too long - try under 1000 chars.", "sources_used": [], "ok": False}
 
     filters = build_filters(ticker, doc_type)
 

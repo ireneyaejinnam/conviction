@@ -3,7 +3,7 @@
 A personal investor's decision-support agent — answers questions about SEC filings
 with inline, verifiable citations, and refuses when the filing doesn't cover it.
 
-**[Live demo](URL)** · **[2-min video](URL)** · [Design decisions](DECISIONS.md)
+**[Live demo](URL)** · **[2-min video](URL)**
 
 ## What it does
 - **Cited QA** over 10-K filings for NVDA, AMD, MSFT, GOOGL. Every claim carries a

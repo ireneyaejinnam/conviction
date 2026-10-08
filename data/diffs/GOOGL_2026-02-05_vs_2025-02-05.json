@@ -1,0 +1,89 @@
+{
+  "ticker": "GOOGL",
+  "current_year": "2026-02-05",
+  "prior_year": "2025-02-05",
+  "diff": {
+    "new": [
+      {
+        "risk": "AI affecting the advertising industry",
+        "evidence": "AI reshaping advertising delivery and formats",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Manufacturing and supply chain constraints for AI",
+        "evidence": "Constraints on power, water, and land; limited suppliers for AI chips",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Financial services regulatory compliance risk",
+        "evidence": "Google Cloud business with financial services, healthcare, and public sector customers",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Intellectual property protection challenges worldwide",
+        "evidence": "Patents may be invalid and inadequate protection in some countries",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Ongoing DOJ antitrust lawsuits",
+        "evidence": "DOJ filed lawsuits about advertising technology and practices",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Geopolitical tensions affecting access to key resources",
+        "evidence": "Energy constraints due to AI demand and geopolitical tensions or conflicts",
+        "year": "2026-02-05"
+      },
+      {
+        "risk": "Future international tax reforms",
+        "evidence": "OECD initiatives for a global minimum tax",
+        "year": "2026-02-05"
+      }
+    ],
+    "removed": [
+      {
+        "risk": "Transition of operations to Google platforms",
+        "evidence": "Risks related to acquisitions and integrating operations",
+        "year": "2025-02-05"
+      }
+    ],
+    "changed": [
+      {
+        "risk": "Revenue from online advertising",
+        "what_changed": "Revenue percentage from advertising declined from more than 75% in 2024 to more than 70% in 2025",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Expansion of AI investment",
+        "what_changed": "From integrating AI capabilities into services to developing generative AI models and focusing on AI platforms",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Data privacy laws and compliance",
+        "what_changed": "New emphasis on AI-related data issues like AI training data and responsiveness to evolving regulations",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Content moderation regulations",
+        "what_changed": "Emphasis on new regulations making it harder to maintain content quality or potentially impinge content access rights",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Antitrust scrutiny and lawsuits",
+        "what_changed": "Updates on ongoing DOJ and state lawsuits and the specific remedies proposed",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      },
+      {
+        "risk": "Global minimum tax policies",
+        "what_changed": "Further detail provided on the OECD negotiations regarding a 15% minimum tax rate",
+        "year_current": "2026-02-05",
+        "year_prior": "2025-02-05"
+      }
+    ]
+  }
+}

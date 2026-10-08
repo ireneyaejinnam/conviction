@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 from src.pipeline import ask
 from src.index.store import get_collection
-from src.analyze.risk_diff import risk_diff
+from src.analyze.risk_diff import load_risk_diff
 
 load_dotenv()
 st.set_page_config(page_title="Conviction", page_icon="📄", layout="wide")
@@ -18,10 +18,6 @@ def available_tickers():
         return sorted({m["ticker"] for m in metas if m and "ticker" in m})
     except Exception as e:
         return ["NVDA", "AMD", "MSFT", "GOOGL"]
-
-@st.cache_data(show_spinner=False, ttl=3600)
-def cached_diff(ticker):
-    return risk_diff(ticker)
 
 tickers = available_tickers()
 tab_ask, tab_diff = st.tabs(["Ask", "Risk Diff"])
@@ -77,14 +73,12 @@ with tab_diff:
     st.caption("Compares Item 1A across a company's two most recent 10-K filings.")
 
     dt = st.selectbox("Company", tickers, key="diff_ticker")
-    if st.button("Run diff", type="primary"):
-        with st.spinner("Fetching and comparing results..."):
-            try:
-                d = cached_diff(dt)
-            except Exception as e:
-                st.error(f"Could not diff {dt}: {e}")
-                d = None
-        if d:
+    if st.button("Show diff", type="primary"):
+        d = load_risk_diff(dt)
+        if d is None:
+            st.info(f"No precomputed diff for {dt}. Run: python -m scripts.ingest_watchlist")
+        else:
+            st.caption(f"{d['prior_year']} → {d['current_year']}")
             diff = d.get("diff", {})
             new = diff.get("new",[])
             removed = diff.get("removed",[])

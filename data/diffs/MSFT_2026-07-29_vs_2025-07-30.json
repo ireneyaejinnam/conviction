@@ -1,0 +1,82 @@
+{
+  "ticker": "MSFT",
+  "current_year": "2026-07-29",
+  "prior_year": "2025-07-30",
+  "diff": {
+    "new": [
+      {
+        "risk": "Evolving customer demand and infrastructure strategy in AI and cloud services",
+        "evidence": "Investments in AI and cloud services are made in advance of fully developed revenue streams and depend on customer demand and other factors.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Delayed revenue realization from AI investments affecting returns",
+        "evidence": "If adoption of AI services develops more slowly, expected returns on investments may not be realized.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "AI strategic partner relationships impacting product competitiveness",
+        "evidence": "Strategic partner changes could adversely affect AI product competitiveness.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Systems misuse by customers causing unintended impacts",
+        "evidence": "AI products could be misused by customers or malicious actors, risking reputational damage or regulatory scrutiny.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Increasing use of AI in internal systems poses new cybersecurity challenges",
+        "evidence": "AI can broaden attack avenues and increase the scope of campaigns, potentially affecting security.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Complex and evolving regulatory environment for strategic infrastructure expansion",
+        "evidence": "Regulatory changes and community opposition may delay infrastructure projects or increase costs.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "Supply chain disruptions impacting availability of critical components",
+        "evidence": "Limited suppliers and geopolitical factors affect availability and pricing of components.",
+        "year": "2026-07-29"
+      },
+      {
+        "risk": "AI impact on sustainability goals",
+        "evidence": "AI development and deployment is likely to increase energy usage, impacting sustainability goals.",
+        "year": "2026-07-29"
+      }
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "risk": "AI market competition and strategy execution",
+        "what_changed": "Increased emphasis on strategic third-party relationships and adjusted capacity allocations.",
+        "year_current": "2026-07-29",
+        "year_prior": "2025-07-30"
+      },
+      {
+        "risk": "AI misuse and impact hazards",
+        "what_changed": "Detailed use cases of AI misuse by customers now included and potential regulatory impacts highlighted.",
+        "year_current": "2026-07-29",
+        "year_prior": "2025-07-30"
+      },
+      {
+        "risk": "Security threats to internal and customer systems",
+        "what_changed": "Integration of AI in identifying and mitigating cyber threats, enhancing corporate transparency during incidents.",
+        "year_current": "2026-07-29",
+        "year_prior": "2025-07-30"
+      },
+      {
+        "risk": "AI regulatory impact",
+        "what_changed": "Increased focus on rapidly evolving AI regulations, indicating global variance in regulatory approaches.",
+        "year_current": "2026-07-29",
+        "year_prior": "2025-07-30"
+      },
+      {
+        "risk": "Environmental and geopolitical changes influencing infrastructure needs",
+        "what_changed": "Highlighted newer risks of coordinated opposition and global regulatory policies against infrastructure projects.",
+        "year_current": "2026-07-29",
+        "year_prior": "2025-07-30"
+      }
+    ]
+  }
+}

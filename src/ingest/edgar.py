@@ -1,7 +1,7 @@
 """
 EDGAR filing downloader that wraps sec-edgar-downloader library
-to fetch SEC filings for a certain ticker then return path to the
-most recent filing's document.
+to fetch SEC filings for a ticker and return paths to the most
+recent filings' documents.
 """
 
 from __future__ import annotations
@@ -9,7 +9,8 @@ import os
 from pathlib import Path
 from sec_edgar_downloader import Downloader
 
-FILING_DIR_PATH = Path("data/filings")
+from src.config import FILINGS_DIR
+from src.ingest.parser import _extract_filing_date
 
 def parse_user_agent(var_str: str):
     """
@@ -27,79 +28,58 @@ def parse_user_agent(var_str: str):
     
     return vars[0], vars[1]
 
-def fetch_filing(
+def _filed_date(submission: Path) -> str:
+    # The SGML header sits in the first few KB; no need to read the whole file.
+    with submission.open(encoding="utf-8", errors="replace") as f:
+        return _extract_filing_date(f.read(4096))
+
+
+def fetch_filings(
     ticker: str,
     filing_type: str = "10-K",
-    limit: int = 1,
+    count: int = 1,
     filings_dir: Path | None = None,
-):
+) -> list[Path]:
     """
-    Download the most recent filing by type given a ticker
-    then return the path to the document.
+    Download the `count` most recent filings of a type for a ticker and
+    return their full-submission.txt paths, newest first.
+
+    full-submission.txt is used rather than primary-document.html: both
+    parse identically for every watchlist ticker, but the submission file
+    carries the SGML header (filing date) itself and doesn't require
+    download_details.
     """
-    
+
     ticker = ticker.upper().strip()
-    filings_dir = filings_dir or FILING_DIR_PATH
+    filings_dir = filings_dir or FILINGS_DIR
     filings_dir.mkdir(parents=True, exist_ok=True)
 
-    name, email = parse_user_agent(os.environ.get("EDGAR_USER_AGENT",""))
+    name, email = parse_user_agent(os.environ.get("EDGAR_USER_AGENT", ""))
 
-    downloaded = Downloader(name, email, str(filings_dir))
-
-    num_downloaded = downloaded.get(filing_type, ticker,
-                                    limit=limit,
+    downloader = Downloader(name, email, str(filings_dir))
+    num_downloaded = downloader.get(filing_type, ticker,
+                                    limit=count,
                                     download_details=False)
-    
-    if num_downloaded == 0:
-        raise FileNotFoundError("Failed to find filings.")
-    
-    root_dir = filings_dir / "sec-edgar-filings" / ticker / filing_type
 
+    if num_downloaded < count:
+        raise FileNotFoundError(
+            f"Expected {count} {filing_type} filings for {ticker}; EDGAR returned {num_downloaded}."
+        )
+
+    root_dir = filings_dir / "sec-edgar-filings" / ticker / filing_type
     if not root_dir.exists():
         raise FileNotFoundError("Failed to find expected directory.")
-    
-    accession_dirs = sorted((d for d in root_dir.iterdir() if d.is_dir()), reverse=True)
 
-    if not accession_dirs:
-        raise FileNotFoundError("Download reported success but no filing directories exist.")
+    submissions = [d / "full-submission.txt" for d in root_dir.iterdir()
+                   if (d / "full-submission.txt").exists()]
 
-    latest_dir = accession_dirs[0]
-    submission_file = latest_dir / "full-submission.txt"
+    # Sort by the filed date in the header, not the accession number: the
+    # accession prefix is the submitting agent's CIK, which can change by year.
+    submissions.sort(key=_filed_date, reverse=True)
 
-    if not submission_file.exists():
-        txt_files = list(latest_dir.glob("*.txt"))
-        if not txt_files:
-            raise FileNotFoundError("No submission file found.")
-        submission_file = txt_files[0]
+    if len(submissions) < count:
+        raise FileNotFoundError(
+            f"Download reported success but only {len(submissions)} submission files exist."
+        )
 
-    return submission_file
-
-def _user_agent():
-    # .env format: EDGAR_USER_AGENT=Yaejin Nam your.email@domain.com
-    ua = os.environ.get("EDGAR_USER_AGENT", "")
-    parts = ua.rsplit(" ", 1)
-    if len(parts) == 2:
-        return parts[0], parts[1]              # (company/name, email)
-    return "Conviction Research", "research@example.com"
-
-
-def fetch_recent_filings(ticker, filing_type="10-K", limit=2, dest="data/filings"):
-    """Download the `limit` most recent filings; return list of primary-doc paths."""
-    ticker = ticker.upper().strip()
-    name, email = _user_agent()
-    dl = Downloader(name, email, dest)
-    dl.get(filing_type, ticker, limit=limit, download_details=True)
-
-    base = Path(dest) / "sec-edgar-filings" / ticker / filing_type
-    paths = []
-    for accession_dir in sorted(base.iterdir()):
-        if not accession_dir.is_dir():
-            continue
-        primary = accession_dir / "primary-document.html"   # sec-edgar-downloader v5 convention
-        if primary.exists():
-            paths.append(str(primary))
-        else:
-            fs = accession_dir / "full-submission.txt"       # fallback
-            if fs.exists():
-                paths.append(str(fs))
-    return paths
+    return submissions[:count]

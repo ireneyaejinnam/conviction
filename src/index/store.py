@@ -15,15 +15,13 @@ Design notes:
 
 from __future__ import annotations
 
-from pathlib import Path
-
 import chromadb
 from openai import OpenAI
 
 from src.chunk.section_aware import Chunk
+from src.config import CHROMA_DIR
 
 
-CHROMA_DIR = Path("data/chroma")
 COLLECTION_NAME = "filings"
 
 EMBED_MODEL = "text-embedding-3-small"
@@ -87,8 +85,7 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
 # ---------------------------------------------------------------------------
 
 def _chunk_id(meta):
-    # Stable id. doc_type is included so filings & transcripts can never collide.
-    # (doc_type doesn't exist until Wednesday; .get(...,'10-K') keeps this safe today.)
+    # Stable id. doc_type is included so different document types can never collide.
     return (
         f"{meta['ticker']}_{meta.get('doc_type', '10-K')}_"
         f"{meta.get('filing_date', 'na')}_{meta['item']}_{meta['chunk_idx']}"
@@ -115,3 +112,17 @@ def embed_and_store(chunks, batch_size=100):
             metadatas=metas,
             ids=ids,
         )
+
+
+def remove_stale_chunks(ticker: str, doc_type: str, keep_ids: set[str]) -> int:
+    """
+    Delete a ticker's chunks of this doc_type that aren't in keep_ids:
+    older filings, and leftover tail chunks if a filing now chunks shorter.
+    Returns the number deleted.
+    """
+    col = get_collection()
+    existing = col.get(where={"$and": [{"ticker": ticker}, {"doc_type": doc_type}]})["ids"]
+    stale = [i for i in existing if i not in keep_ids]
+    if stale:
+        col.delete(ids=stale)
+    return len(stale)

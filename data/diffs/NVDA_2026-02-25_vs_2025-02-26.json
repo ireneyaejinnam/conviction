@@ -1,0 +1,68 @@
+{
+  "ticker": "NVDA",
+  "current_year": "2026-02-25",
+  "prior_year": "2025-02-26",
+  "diff": {
+    "new": [
+      {
+        "risk": "Commercial arrangements expose us to counterparty risks.",
+        "evidence": "Exposure to counterparty risk including financial distress or insolvency of customers/partners.",
+        "year": "2026-02-25"
+      },
+      {
+        "risk": "Withdrawal from the China market",
+        "evidence": "We were foreclosed from competing in China's data center compute market due to export controls.",
+        "year": "2026-02-25"
+      },
+      {
+        "risk": "Investment and partnership agreement with OpenAI",
+        "evidence": "Finalizing an investment and partnership agreement with OpenAI.",
+        "year": "2026-02-25"
+      }
+    ],
+    "removed": [
+      {
+        "risk": "Discussion of specific customers A, B, and C as sources of revenue concentration",
+        "evidence": "Specific mention of Customers A, B, C and their contribution to revenue concentration was not present.",
+        "year": "2025-02-26"
+      },
+      {
+        "risk": "NVIDIA DGX Cloud services specifically called out",
+        "evidence": "Detailed mention of NVIDIA DGX Cloud services and partnerships with CSPs was less emphasized.",
+        "year": "2025-02-26"
+      }
+    ],
+    "changed": [
+      {
+        "risk": "International sales and operations exposure",
+        "what_changed": "Percentage of revenue generated from sales outside U.S. decreased from 53% to 31%.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "Specific product export controls and USG restrictions",
+        "what_changed": "Details about specific USG restrictions, e.g., H20 product and impact on inventory and licenses granted.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "Cybersecurity threats and AI security",
+        "what_changed": "Emphasis on cybersecurity threats increased with more focus on AI-related vulnerabilities.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "Impact from geopolitical conflict in Israel",
+        "what_changed": "Number of employees in region increased from approximately 4,700 to 6,000.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      },
+      {
+        "risk": "Export control impacts",
+        "what_changed": "More detailed mention of revised USG export controls, including A100, H100, and H200 licensing discussions and specific impacts.",
+        "year_current": "2026-02-25",
+        "year_prior": "2025-02-26"
+      }
+    ]
+  }
+}

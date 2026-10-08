@@ -5,6 +5,8 @@ __pycache__/
 data/filings/
 data/chroma/
 .DS_Store
-.ipynb_checkpoints/data/transcripts/
+.ipynb_checkpoints/
+data/transcripts/
 DECISIONS.md
 RECOVERY_NOTES.md
+.idea/

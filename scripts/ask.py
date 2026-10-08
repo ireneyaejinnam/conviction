@@ -10,7 +10,7 @@ def main():
     p.add_argument("question", help="Natural-language question")
     p.add_argument("--ticker", default=None, help="Scope to one ticker, e.g. NVDA")
     p.add_argument("--doc-type", dest="doc_type", default=None,
-                   help='Scope to a doc type: "10-K" or "transcript"')
+                   help='Scope to a doc type, e.g. "10-K"')
     p.add_argument("-k", type=int, default=8, help="Chunks to retrieve")
     args = p.parse_args()
 
