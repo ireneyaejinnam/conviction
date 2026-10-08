@@ -15,15 +15,13 @@ Design notes:
 
 from __future__ import annotations
 
-from pathlib import Path
-
 import chromadb
 from openai import OpenAI
 
 from src.chunk.section_aware import Chunk
+from src.config import CHROMA_DIR
 
 
-CHROMA_DIR = Path("data/chroma")
 COLLECTION_NAME = "filings"
 
 EMBED_MODEL = "text-embedding-3-small"

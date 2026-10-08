@@ -9,7 +9,7 @@ import os
 from pathlib import Path
 from sec_edgar_downloader import Downloader
 
-FILING_DIR_PATH = Path("data/filings")
+from src.config import FILINGS_DIR
 
 def parse_user_agent(var_str: str):
     """
@@ -39,7 +39,7 @@ def fetch_filing(
     """
     
     ticker = ticker.upper().strip()
-    filings_dir = filings_dir or FILING_DIR_PATH
+    filings_dir = filings_dir or FILINGS_DIR
     filings_dir.mkdir(parents=True, exist_ok=True)
 
     name, email = parse_user_agent(os.environ.get("EDGAR_USER_AGENT",""))
@@ -83,11 +83,11 @@ def _user_agent():
     return "Conviction Research", "research@example.com"
 
 
-def fetch_recent_filings(ticker, filing_type="10-K", limit=2, dest="data/filings"):
+def fetch_recent_filings(ticker, filing_type="10-K", limit=2, dest=FILINGS_DIR):
     """Download the `limit` most recent filings; return list of primary-doc paths."""
     ticker = ticker.upper().strip()
     name, email = _user_agent()
-    dl = Downloader(name, email, dest)
+    dl = Downloader(name, email, str(dest))
     dl.get(filing_type, ticker, limit=limit, download_details=True)
 
     base = Path(dest) / "sec-edgar-filings" / ticker / filing_type

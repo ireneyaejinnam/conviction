@@ -4,12 +4,12 @@ Usage: python -m scripts.run_eval
 """
 
 import json
-from pathlib import Path
 from dotenv import load_dotenv
+from src.config import EVAL_DIR
 from src.pipeline import ask
 
 load_dotenv()
-EVAL_PATH = Path("data/eval/nvda.jsonl")
+EVAL_PATH = EVAL_DIR / "nvda.jsonl"
 
 def main():
     rows = [json.loads(l) for l in EVAL_PATH.read_text().splitlines() if l.strip()]

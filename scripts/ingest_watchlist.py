@@ -2,12 +2,13 @@ import json
 import time
 from pathlib import Path
 from dotenv import load_dotenv
+from src.config import WATCHLIST_PATH
 from src.ingest.run import ingest_one
 from src.index.store import get_collection
 
 load_dotenv()
 
-def load_watchlist(path="data/watchlist.json"):
+def load_watchlist(path=WATCHLIST_PATH):
     return json.loads(Path(path).read_text())["tickers"]
 
 if __name__ == "__main__":
