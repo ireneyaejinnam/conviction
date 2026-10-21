@@ -1,0 +1,1646 @@
+{
+  "timestamp": "20261021_154933",
+  "commit": "1e17a43",
+  "k": 8,
+  "eval_file": "conviction.jsonl",
+  "results": [
+    {
+      "id": "nvda_001",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1A"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_11",
+          "item": "Item 1A",
+          "distance": 0.6371687650680542
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_13",
+          "item": "Item 15",
+          "distance": 0.6459041237831116
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_32",
+          "item": "Item 1A",
+          "distance": 0.6536074876785278
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.6554174423217773
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_4",
+          "item": "Item 1A",
+          "distance": 0.6609541177749634
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.6618717908859253
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_11",
+          "item": "Item 15",
+          "distance": 0.6636695861816406
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_6",
+          "item": "Item 1",
+          "distance": 0.6656530499458313
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA's primary risk factors include:\n\n1. **Supply Chain and Security Issues**: NVIDIA faces risks related to security vulnerabilities in their own information technology systems and those of third-party suppliers. Breaches can lead to reputational and financial harm, regulatory scrutiny, and customer trust issues [Source 1].\n\n2. **Data and AI Model Concerns**: The integration of third-party data into AI models can introduce flaws or biased information, potentially compromising AI outputs and affecting reliability and performance [Source 1].\n\n3. **Demand Fluctuations and Inventory Risks**: There are risks associated with overestimating demand or if customers defer or cancel orders, as NVIDIA might have to write down inventory or face increased supply chain costs [Source 5].\n\n4. **Geopolitical and Regulatory Challenges**: Export restrictions, such as those imposed by the U.S. government on NVIDIA\u2019s products to China, can affect sales and lead to significant financial impacts [Source 6].\n\n5. **Litigation and Regulatory Proceedings**: NVIDIA is susceptible to litigation and regulatory issues which can be costly, time-consuming, and potentially harmful to their operations and financials [Source 3 & Source 7].\n\n6. **Technological Competition and Customer Adoption**: Rapid technological changes and customer preferences may lead to decreased demand for NVIDIA's products if they lag behind competitors. Moreover, constraints in data center capacity and energy can limit revenue and performance [Source 5 & Source 6]. \n\nThese factors can significantly influence NVIDIA\u2019s financial performance and market operations.",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 1A_11",
+        "NVDA_10-K_2026-02-25_Item 15_13",
+        "NVDA_10-K_2026-02-25_Item 1A_32",
+        "NVDA_10-K_2026-02-25_Item 7_0",
+        "NVDA_10-K_2026-02-25_Item 1A_4",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 15_11",
+        "NVDA_10-K_2026-02-25_Item 1_6"
+      ],
+      "citation_rows": 4
+    },
+    {
+      "id": "nvda_002",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1A",
+        "Item 15"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_9",
+          "item": "Item 7",
+          "distance": 0.40881359577178955
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_7",
+          "item": "Item 7",
+          "distance": 0.4156007766723633
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_36",
+          "item": "Item 15",
+          "distance": 0.4601120948791504
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_13",
+          "item": "Item 15",
+          "distance": 0.4679386615753174
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.4731050133705139
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_2",
+          "item": "Item 15",
+          "distance": 0.47355949878692627
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_35",
+          "item": "Item 15",
+          "distance": 0.4758691191673279
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_16",
+          "item": "Item 15",
+          "distance": 0.4797932505607605
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA's revenue concentration disclosure indicates that their revenue is concentrated among a limited number of direct and indirect customers, and this trend may continue. In fiscal year 2026, sales to one direct customer represented 22% and sales to another direct customer represented 14% of total revenue, primarily attributable to the Compute & Networking segment. In previous years, specific direct customer sales also represented a significant percentage of total revenue in a similar concentration pattern [Source 1], [Source 3].\n\nAdditionally, it's noted that indirect customers, such as those purchasing through system integrators and distributors, also account for a significant portion of revenue, with some individually representing 10% or more of revenue. The estimate mentions that one AI research and deployment company contributed meaningfully to revenue through cloud services purchases from NVIDIA customers in fiscal year 2026 [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 7_9",
+        "NVDA_10-K_2026-02-25_Item 7_7",
+        "NVDA_10-K_2026-02-25_Item 15_36",
+        "NVDA_10-K_2026-02-25_Item 15_13",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 15_2",
+        "NVDA_10-K_2026-02-25_Item 15_35",
+        "NVDA_10-K_2026-02-25_Item 15_16"
+      ],
+      "citation_rows": 3
+    },
+    {
+      "id": "nvda_003",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_7",
+          "item": "Item 1",
+          "distance": 0.4748932123184204
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_6",
+          "item": "Item 1",
+          "distance": 0.47721242904663086
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.5012605786323547
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_8",
+          "item": "Item 1",
+          "distance": 0.5018471479415894
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_2",
+          "item": "Item 1",
+          "distance": 0.5077375769615173
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_5",
+          "item": "Item 1",
+          "distance": 0.5084574222564697
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_3",
+          "item": "Item 1",
+          "distance": 0.5108078718185425
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.5140273571014404
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA describes its competitive position through its technology and platform leadership in artificial intelligence (AI) and accelerated computing across several major markets. The company emphasizes its end-to-end accelerated computing platforms designed for AI, which support multi-billion-dollar markets with shared technology [Source 1]. NVIDIA claims leadership in AI and computer graphics, underlined by the deployment of comprehensive hardware and software solutions to address complex computational problems in data centers, gaming, professional visualization, and automotive sectors [Source 3, Source 7].\n\nThe company also highlights its reinforced AI technology leadership by leveraging an expansive and growing ecosystem of developers, partners, and customers. Over 7.5 million developers use NVIDIA's CUDA and other software tools to deploy its technology across target markets [Source 1].\n\nNVIDIA extends its competitive position through its strategic research and development investments, with over $76.7 billion spent since inception to push the boundaries of modern computing, aiming to deliver performance leaps beyond Moore's Law [Source 8, Source 2]. This approach is further supported by a unified, programmable architecture that allows NVIDIA to use a variety of software stacks developed internally or by partners [Source 8].\n\nAdditionally, NVIDIA positions itself as an innovator with its GPUs powering approximately 78% of supercomputers on the global TOP500 list, meaningfully impacting scientific computing and other high-performance computing applications [Source 5].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 1_7",
+        "NVDA_10-K_2026-02-25_Item 1_6",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 1_8",
+        "NVDA_10-K_2026-02-25_Item 1_2",
+        "NVDA_10-K_2026-02-25_Item 1_5",
+        "NVDA_10-K_2026-02-25_Item 1_3",
+        "NVDA_10-K_2026-02-25_Item 1_0"
+      ],
+      "citation_rows": 8
+    },
+    {
+      "id": "nvda_004",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1",
+        "Item 1A"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_25",
+          "item": "Item 1A",
+          "distance": 0.4460580348968506
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_21",
+          "item": "Item 1A",
+          "distance": 0.46231621503829956
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_14",
+          "item": "Item 1",
+          "distance": 0.4630492925643921
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_24",
+          "item": "Item 1A",
+          "distance": 0.48859357833862305
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_22",
+          "item": "Item 1A",
+          "distance": 0.4908751845359802
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_13",
+          "item": "Item 1",
+          "distance": 0.5187687873840332
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_20",
+          "item": "Item 1A",
+          "distance": 0.5256044864654541
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_23",
+          "item": "Item 1A",
+          "distance": 0.5412760376930237
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA discusses export controls in detail in several sections of their 10-K filing:\n\n1. Export controls have already been imposed on certain GPUs, affecting NVIDIA's ability to sell these products not only in China but also in the U.S. and Europe. Such controls disrupt supply and distribution chains and negatively impact sales of gaming and data center GPUs, as well as associated networking products [Source 1, Source 5].\n\n2. The U.S. government (USG) has put forth export control measures targeting semiconductors associated with AI, including restrictions on the use, resale, repair, or transfer of products. These measures create compliance burdens and may result in excess inventory or supply charges for NVIDIA [Source 2, Source 5].\n\n3. The USG's export restrictions impact NVIDIA\u2019s ability to compete in certain markets. This is exacerbated by the fact that certain licenses are temporary or include conditions that competitors based in regions not subject to U.S. controls do not face [Source 3, Source 4].\n\n4. Compliance with these controls is complex and costly, involving licenses for exporting to specific countries such as China and regions labeled as Country Groups D:1, D:4, and D:5. Changes in regulations can lead to unanticipated financial impacts, increased compliance costs, and hinder their competitive position [Source 4, Source 6, Source 8].\n\n5. Export controls have also encouraged foreign governments to push for designing-out U.S. semiconductors to ease compliance burdens and reduce associated risks, further disadvantaging NVIDIA in the global market [Source 1, Source 7].\n\n6. Investor risk is compounded by the possibility of new controls being enacted, which could result in significant disruptions and costs, potentially affecting NVIDIA's business operations and relationships with partners, suppliers, and customers [Source 7, Source 8].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 1A_25",
+        "NVDA_10-K_2026-02-25_Item 1A_21",
+        "NVDA_10-K_2026-02-25_Item 1_14",
+        "NVDA_10-K_2026-02-25_Item 1A_24",
+        "NVDA_10-K_2026-02-25_Item 1A_22",
+        "NVDA_10-K_2026-02-25_Item 1_13",
+        "NVDA_10-K_2026-02-25_Item 1A_20",
+        "NVDA_10-K_2026-02-25_Item 1A_23"
+      ],
+      "citation_rows": 13
+    },
+    {
+      "id": "nvda_006",
+      "ticker": "NVDA",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7",
+        "Item 15"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_25",
+          "item": "Item 15",
+          "distance": 0.3623422384262085
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_26",
+          "item": "Item 15",
+          "distance": 0.370219349861145
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_22",
+          "item": "Item 15",
+          "distance": 0.38098978996276855
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_23",
+          "item": "Item 15",
+          "distance": 0.39149928092956543
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_24",
+          "item": "Item 15",
+          "distance": 0.398023784160614
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_37",
+          "item": "Item 15",
+          "distance": 0.4005733132362366
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_20",
+          "item": "Item 15",
+          "distance": 0.4036862254142761
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_8",
+          "item": "Item 15",
+          "distance": 0.40816372632980347
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA has $1,000 million (or $1 billion) of debt coming due in 2026. Specifically, this is related to their 3.20% notes due in that year. The effective interest rate on these notes is 3.31%, and they are categorized under short-term debt as of January 25, 2026, which means they are due within one year [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 15_25",
+        "NVDA_10-K_2026-02-25_Item 15_26",
+        "NVDA_10-K_2026-02-25_Item 15_22",
+        "NVDA_10-K_2026-02-25_Item 15_23",
+        "NVDA_10-K_2026-02-25_Item 15_24",
+        "NVDA_10-K_2026-02-25_Item 15_37",
+        "NVDA_10-K_2026-02-25_Item 15_20",
+        "NVDA_10-K_2026-02-25_Item 15_8"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "nvda_007",
+      "ticker": "NVDA",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7",
+        "Item 15"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_13",
+          "item": "Item 15",
+          "distance": 0.457897424697876
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_25",
+          "item": "Item 15",
+          "distance": 0.4815989136695862
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_26",
+          "item": "Item 15",
+          "distance": 0.4974324703216553
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.4974817633628845
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_20",
+          "item": "Item 15",
+          "distance": 0.4996491074562073
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_22",
+          "item": "Item 15",
+          "distance": 0.5026292204856873
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_18",
+          "item": "Item 1",
+          "distance": 0.5033144354820251
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_7",
+          "item": "Item 7",
+          "distance": 0.5096310973167419
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA gets its liquidity from several sources, including:\n\n1. **Cash Equivalents and Marketable Securities:** NVIDIA holds a significant amount of cash equivalents and marketable securities. As of January 25, 2026, they had substantial investments in debt securities issued by the U.S. Treasury and corporate debt securities, among others. These are highly liquid assets that can be converted into cash when needed [Source 1], [Source 5], [Source 6].\n\n2. **Commercial Paper Program:** NVIDIA has a commercial paper program, which was increased in January 2026 from $575 million to $25.0 billion. However, as of January 25, 2026, there was no outstanding commercial paper [Source 2].\n\nThis indicates that NVIDIA has ready access to liquidity through both cash reserves and a robust commercial paper program.",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 15_13",
+        "NVDA_10-K_2026-02-25_Item 15_25",
+        "NVDA_10-K_2026-02-25_Item 15_26",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 15_20",
+        "NVDA_10-K_2026-02-25_Item 15_22",
+        "NVDA_10-K_2026-02-25_Item 1_18",
+        "NVDA_10-K_2026-02-25_Item 7_7"
+      ],
+      "citation_rows": 4
+    },
+    {
+      "id": "nvda_008",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7",
+        "Item 15"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_6",
+          "item": "Item 15",
+          "distance": 0.38794708251953125
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_5",
+          "item": "Item 15",
+          "distance": 0.405988872051239
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_3",
+          "item": "Item 15",
+          "distance": 0.41327929496765137
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_4",
+          "item": "Item 15",
+          "distance": 0.4143178462982178
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_7",
+          "item": "Item 7",
+          "distance": 0.41814082860946655
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_17",
+          "item": "Item 15",
+          "distance": 0.4207148551940918
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 15_19",
+          "item": "Item 15",
+          "distance": 0.4248950481414795
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.43543583154678345
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA repurchased $40,086 million worth of its common stock during the fiscal year ended January 25, 2026 [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 15_6",
+        "NVDA_10-K_2026-02-25_Item 15_5",
+        "NVDA_10-K_2026-02-25_Item 15_3",
+        "NVDA_10-K_2026-02-25_Item 15_4",
+        "NVDA_10-K_2026-02-25_Item 7_7",
+        "NVDA_10-K_2026-02-25_Item 15_17",
+        "NVDA_10-K_2026-02-25_Item 15_19",
+        "NVDA_10-K_2026-02-25_Item 7_0"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "nvda_009",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1",
+        "Item 1A"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_9",
+          "item": "Item 1",
+          "distance": 0.4647808074951172
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_6",
+          "item": "Item 1A",
+          "distance": 0.4741503596305847
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.4838559031486511
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_10",
+          "item": "Item 1",
+          "distance": 0.4864461421966553
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_12",
+          "item": "Item 1A",
+          "distance": 0.49968236684799194
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1A_4",
+          "item": "Item 1A",
+          "distance": 0.5005507469177246
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 1_11",
+          "item": "Item 1",
+          "distance": 0.5128413438796997
+        },
+        {
+          "id": "NVDA_10-K_2026-02-25_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.5232411623001099
+        }
+      ],
+      "ok": true,
+      "answer": "NVIDIA is highly dependent on outside manufacturers like TSMC and Samsung for its semiconductor wafer production and other subcontractors for activities such as assembly, testing, and packaging of its products. This fabless manufacturing strategy allows NVIDIA to avoid the significant costs and risks associated with owning and operating its own manufacturing operations. Instead, NVIDIA leverages the expertise of industry-leading suppliers and subcontractors [Source 1].\n\nSpecifically, NVIDIA relies on TSMC and Samsung for wafer fabrication, demonstrating a considerable dependency on these foundries [Source 1]. This dependency on third-party suppliers reduces NVIDIA's control over product quantity, quality, manufacturing yields, and product delivery schedules. This reliance is acknowledged as a risk, as any disruptions or failures by these suppliers could adversely impact NVIDIA's business operations [Source 2]. Additionally, NVIDIA's supply chain is mainly concentrated in Asia, although efforts are being made to expand into the U.S. and Latin America to add resilience and redundancy [Source 1, Source 8].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 1_9",
+        "NVDA_10-K_2026-02-25_Item 1A_6",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 1_10",
+        "NVDA_10-K_2026-02-25_Item 1A_12",
+        "NVDA_10-K_2026-02-25_Item 1A_4",
+        "NVDA_10-K_2026-02-25_Item 1_11",
+        "NVDA_10-K_2026-02-25_Item 7_2"
+      ],
+      "citation_rows": 5
+    },
+    {
+      "id": "amd_001",
+      "ticker": "AMD",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_5",
+          "item": "Item 8",
+          "distance": 0.4350997805595398
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.436887264251709
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_19",
+          "item": "Item 1",
+          "distance": 0.4416974186897278
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.45300161838531494
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_13",
+          "item": "Item 8",
+          "distance": 0.4649849534034729
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_6",
+          "item": "Item 8",
+          "distance": 0.4810439944267273
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_1",
+          "item": "Item 1",
+          "distance": 0.5028471946716309
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_16",
+          "item": "Item 1",
+          "distance": 0.5111770629882812
+        }
+      ],
+      "ok": true,
+      "answer": "As of December 27, 2025, AMD had a total debt of $3.3 billion [Source 2]. The excerpts provided do not specify how much of this debt is short-term.",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "AMD_10-K_2026-02-04_Item 8_5",
+        "AMD_10-K_2026-02-04_Item 7_0",
+        "AMD_10-K_2026-02-04_Item 1_19",
+        "AMD_10-K_2026-02-04_Item 1_0",
+        "AMD_10-K_2026-02-04_Item 8_13",
+        "AMD_10-K_2026-02-04_Item 8_6",
+        "AMD_10-K_2026-02-04_Item 1_1",
+        "AMD_10-K_2026-02-04_Item 1_16"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "amd_002",
+      "ticker": "AMD",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_5",
+          "item": "Item 8",
+          "distance": 0.3971208333969116
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.4082280993461609
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_13",
+          "item": "Item 8",
+          "distance": 0.41985660791397095
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.42192596197128296
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_19",
+          "item": "Item 1",
+          "distance": 0.4282418489456177
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_2",
+          "item": "Item 1",
+          "distance": 0.45400476455688477
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_6",
+          "item": "Item 8",
+          "distance": 0.45837557315826416
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.4637753963470459
+        }
+      ],
+      "ok": true,
+      "answer": "AMD had cash, cash equivalents, and short-term investments totaling $10.6 billion as of December 27, 2025 [Source 2]. In contrast, their total accrued liabilities on the same date were $5.25 billion [Source 3]. Therefore, AMD's cash and short-term investments appear sufficient to cover their liabilities for the next year. Additionally, AMD management expresses confidence that their cash, along with available credit facilities and cash flows from operations, will be sufficient to fund operations, including capital expenditures and strategic activities, for the next 12 months and beyond [Source 4].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "AMD_10-K_2026-02-04_Item 8_5",
+        "AMD_10-K_2026-02-04_Item 7_0",
+        "AMD_10-K_2026-02-04_Item 8_13",
+        "AMD_10-K_2026-02-04_Item 1_0",
+        "AMD_10-K_2026-02-04_Item 1_19",
+        "AMD_10-K_2026-02-04_Item 1_2",
+        "AMD_10-K_2026-02-04_Item 8_6",
+        "AMD_10-K_2026-02-04_Item 7_1"
+      ],
+      "citation_rows": 3
+    },
+    {
+      "id": "amd_003",
+      "ticker": "AMD",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1A"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_5",
+          "item": "Item 8",
+          "distance": 0.47998160123825073
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_19",
+          "item": "Item 1",
+          "distance": 0.5117447972297668
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1A_34",
+          "item": "Item 1A",
+          "distance": 0.5131579637527466
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.5170823335647583
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_6",
+          "item": "Item 8",
+          "distance": 0.5320991277694702
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_17",
+          "item": "Item 1",
+          "distance": 0.5472524166107178
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_26",
+          "item": "Item 8",
+          "distance": 0.5638525485992432
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.5755872130393982
+        }
+      ],
+      "ok": true,
+      "answer": "The agreements governing AMD's notes, its guarantee of the Assumed Xilinx Notes, and the Revolving Credit Agreement impose restrictions that include:\n\n1. Limiting AMD's ability to create liens on certain assets to secure debt.\n2. Restricting AMD from entering into certain sale and leaseback transactions.\n3. Prohibiting AMD from consolidating with, merging into, or selling, conveying or leasing all or substantially all of its assets to another person.\n4. Maintaining a minimum consolidated interest coverage ratio at the end of each fiscal quarter, as required by the Revolving Credit Agreement. [Source 3]",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "AMD_10-K_2026-02-04_Item 8_5",
+        "AMD_10-K_2026-02-04_Item 1_19",
+        "AMD_10-K_2026-02-04_Item 1A_34",
+        "AMD_10-K_2026-02-04_Item 1_0",
+        "AMD_10-K_2026-02-04_Item 8_6",
+        "AMD_10-K_2026-02-04_Item 1_17",
+        "AMD_10-K_2026-02-04_Item 8_26",
+        "AMD_10-K_2026-02-04_Item 7_2"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "amd_004",
+      "ticker": "AMD",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_17",
+          "item": "Item 8",
+          "distance": 0.34515923261642456
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.37345612049102783
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_19",
+          "item": "Item 8",
+          "distance": 0.44364404678344727
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.4725283980369568
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_18",
+          "item": "Item 8",
+          "distance": 0.4727025032043457
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_19",
+          "item": "Item 1",
+          "distance": 0.4772852659225464
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 8_5",
+          "item": "Item 8",
+          "distance": 0.48084038496017456
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_2",
+          "item": "Item 1",
+          "distance": 0.5182451009750366
+        }
+      ],
+      "ok": true,
+      "answer": "AMD paid a total purchase consideration of $4.4 billion for ZT Systems. This included $3.2 billion in cash and the issuance of 8.3 million shares of AMD common stock valued at $860 million, along with a fair value of contingent consideration amounting to $361 million on the acquisition date [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "AMD_10-K_2026-02-04_Item 8_17",
+        "AMD_10-K_2026-02-04_Item 7_1",
+        "AMD_10-K_2026-02-04_Item 8_19",
+        "AMD_10-K_2026-02-04_Item 7_2",
+        "AMD_10-K_2026-02-04_Item 8_18",
+        "AMD_10-K_2026-02-04_Item 1_19",
+        "AMD_10-K_2026-02-04_Item 8_5",
+        "AMD_10-K_2026-02-04_Item 1_2"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "amd_005",
+      "ticker": "AMD",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_12",
+          "item": "Item 1",
+          "distance": 0.33889734745025635
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_11",
+          "item": "Item 1",
+          "distance": 0.37424397468566895
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_9",
+          "item": "Item 1",
+          "distance": 0.43154048919677734
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_4",
+          "item": "Item 1",
+          "distance": 0.43796831369400024
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_13",
+          "item": "Item 1",
+          "distance": 0.4385251998901367
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_6",
+          "item": "Item 1",
+          "distance": 0.4409037232398987
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_10",
+          "item": "Item 1",
+          "distance": 0.4441913366317749
+        },
+        {
+          "id": "AMD_10-K_2026-02-04_Item 1_19",
+          "item": "Item 1",
+          "distance": 0.4445264935493469
+        }
+      ],
+      "ok": true,
+      "answer": "AMD is competing against Intel Corporation and Nvidia Corporation in the Data Center segment with their CPU, GPU, DPU, and AI NIC server products. Additionally, they compete with Altera for FPGA and adaptive SoC server products. Some smaller fabless silicon companies and internally developed products by their customers also present competition. [Source 1]",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "AMD_10-K_2026-02-04_Item 1_12",
+        "AMD_10-K_2026-02-04_Item 1_11",
+        "AMD_10-K_2026-02-04_Item 1_9",
+        "AMD_10-K_2026-02-04_Item 1_4",
+        "AMD_10-K_2026-02-04_Item 1_13",
+        "AMD_10-K_2026-02-04_Item 1_6",
+        "AMD_10-K_2026-02-04_Item 1_10",
+        "AMD_10-K_2026-02-04_Item 1_19"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "msft_001",
+      "ticker": "MSFT",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_20",
+          "item": "Item 8",
+          "distance": 0.4260495901107788
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.4597591757774353
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_32",
+          "item": "Item 8",
+          "distance": 0.4806596636772156
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_9",
+          "item": "Item 7",
+          "distance": 0.4854980707168579
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.48830676078796387
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_28",
+          "item": "Item 8",
+          "distance": 0.49068528413772583
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_26",
+          "item": "Item 8",
+          "distance": 0.4931042194366455
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_12",
+          "item": "Item 7",
+          "distance": 0.49816447496414185
+        }
+      ],
+      "ok": true,
+      "answer": "As of June 30, 2026, Microsoft has $9,250 million of its long-term debt principal payments coming due in the fiscal year ending June 30, 2027 [Source 4].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 8_20",
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 8_32",
+        "MSFT_10-K_2026-07-29_Item 7_9",
+        "MSFT_10-K_2026-07-29_Item 7_2",
+        "MSFT_10-K_2026-07-29_Item 8_28",
+        "MSFT_10-K_2026-07-29_Item 8_26",
+        "MSFT_10-K_2026-07-29_Item 7_12"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "msft_002",
+      "ticker": "MSFT",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 8"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_32",
+          "item": "Item 8",
+          "distance": 0.5171427726745605
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_12",
+          "item": "Item 7",
+          "distance": 0.5309808254241943
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_11",
+          "item": "Item 1",
+          "distance": 0.5378074049949646
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_33",
+          "item": "Item 8",
+          "distance": 0.5434497594833374
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.5469998717308044
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.5662691593170166
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.5665914416313171
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_2",
+          "item": "Item 8",
+          "distance": 0.5793570280075073
+        }
+      ],
+      "ok": true,
+      "answer": "The provided excerpts do not mention Microsoft's credit rating. Please refer to other resources or contact financial services for this information.",
+      "refusal_phrase": "do not mention",
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 8_32",
+        "MSFT_10-K_2026-07-29_Item 7_12",
+        "MSFT_10-K_2026-07-29_Item 1_11",
+        "MSFT_10-K_2026-07-29_Item 8_33",
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 1_0",
+        "MSFT_10-K_2026-07-29_Item 7_2",
+        "MSFT_10-K_2026-07-29_Item 8_2"
+      ],
+      "citation_rows": 0
+    },
+    {
+      "id": "msft_003",
+      "ticker": "MSFT",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1A"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_12",
+          "item": "Item 1A",
+          "distance": 0.5025460720062256
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_11",
+          "item": "Item 1A",
+          "distance": 0.5036008954048157
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_2",
+          "item": "Item 1A",
+          "distance": 0.511857807636261
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_15",
+          "item": "Item 1A",
+          "distance": 0.5156199932098389
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.535842776298523
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_21",
+          "item": "Item 1A",
+          "distance": 0.5446445941925049
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_20",
+          "item": "Item 1A",
+          "distance": 0.5463143587112427
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.5480260252952576
+        }
+      ],
+      "ok": true,
+      "answer": "Rising interest rates and a potential credit rating downgrade could indeed negatively affect Microsoft's datacenter buildout. According to the provided excerpts, Microsoft's infrastructure strategy, including the expansion and development of datacenters, requires substantial capital investment and continued access to financing. Adverse changes in interest rates, credit markets, investor sentiment, or the company\u2019s credit ratings could increase the cost of capital or limit the ability to execute its infrastructure strategy, which may include datacenters [Source 3]. Thus, rising rates or a downgrade could increase costs or restrict the capacity to secure necessary financing for these projects.",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 1A_12",
+        "MSFT_10-K_2026-07-29_Item 1A_11",
+        "MSFT_10-K_2026-07-29_Item 1A_2",
+        "MSFT_10-K_2026-07-29_Item 1A_15",
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 1A_21",
+        "MSFT_10-K_2026-07-29_Item 1A_20",
+        "MSFT_10-K_2026-07-29_Item 1_0"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "msft_004",
+      "ticker": "MSFT",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.41768878698349
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_0",
+          "item": "Item 1",
+          "distance": 0.46698278188705444
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_2",
+          "item": "Item 1A",
+          "distance": 0.5216119289398193
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_6",
+          "item": "Item 1",
+          "distance": 0.5289098024368286
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_4",
+          "item": "Item 1",
+          "distance": 0.5412778854370117
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_3",
+          "item": "Item 1",
+          "distance": 0.5501601696014404
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1A_10",
+          "item": "Item 1A",
+          "distance": 0.5509185791015625
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_3",
+          "item": "Item 7",
+          "distance": 0.5627800226211548
+        }
+      ],
+      "ok": true,
+      "answer": "The current relationship between Microsoft and OpenAI is described as a long-term strategic partnership that was initially established in 2019. This partnership was extended in October 2025 and April 2026, with a shared vision to advance artificial intelligence responsibly and make its benefits broadly accessible. Microsoft continues to be a major investor in OpenAI and receives revenue-sharing payments. Additionally, Microsoft holds rights to OpenAI\u2019s intellectual property, including models and infrastructure, for integration into its products [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 1_0",
+        "MSFT_10-K_2026-07-29_Item 1A_2",
+        "MSFT_10-K_2026-07-29_Item 1_6",
+        "MSFT_10-K_2026-07-29_Item 1_4",
+        "MSFT_10-K_2026-07-29_Item 1_3",
+        "MSFT_10-K_2026-07-29_Item 1A_10",
+        "MSFT_10-K_2026-07-29_Item 7_3"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "msft_005",
+      "ticker": "MSFT",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_33",
+          "item": "Item 8",
+          "distance": 0.4878085255622864
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_32",
+          "item": "Item 8",
+          "distance": 0.4906824827194214
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.5172796249389648
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 1_11",
+          "item": "Item 1",
+          "distance": 0.5227679014205933
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_34",
+          "item": "Item 8",
+          "distance": 0.5639826059341431
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_35",
+          "item": "Item 8",
+          "distance": 0.5653616786003113
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 7_12",
+          "item": "Item 7",
+          "distance": 0.5660887360572815
+        },
+        {
+          "id": "MSFT_10-K_2026-07-29_Item 8_2",
+          "item": "Item 8",
+          "distance": 0.5806787610054016
+        }
+      ],
+      "ok": true,
+      "answer": "Yes, Microsoft is still being audited by the IRS. The company remains under IRS audit, or subject to IRS audit, for tax years subsequent to 2003, particularly concerning unresolved transfer pricing issues. [Source 5]",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 8_33",
+        "MSFT_10-K_2026-07-29_Item 8_32",
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 1_11",
+        "MSFT_10-K_2026-07-29_Item 8_34",
+        "MSFT_10-K_2026-07-29_Item 8_35",
+        "MSFT_10-K_2026-07-29_Item 7_12",
+        "MSFT_10-K_2026-07-29_Item 8_2"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "googl_001",
+      "ticker": "GOOGL",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_32",
+          "item": "Item 8",
+          "distance": 0.4017276167869568
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_20",
+          "item": "Item 8",
+          "distance": 0.420309841632843
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_3",
+          "item": "Item 8",
+          "distance": 0.42936331033706665
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_5",
+          "item": "Item 8",
+          "distance": 0.43332546949386597
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_33",
+          "item": "Item 8",
+          "distance": 0.4334492087364197
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1A_18",
+          "item": "Item 1A",
+          "distance": 0.4434901475906372
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_14",
+          "item": "Item 7",
+          "distance": 0.45736563205718994
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_42",
+          "item": "Item 8",
+          "distance": 0.46191656589508057
+        }
+      ],
+      "ok": true,
+      "answer": "As of December 31, 2025, Alphabet's total long-term debt was $46.547 billion [Source 1]. The total face value of long-term debt was $49.085 billion, which includes all bonds issued. However, after accounting for unamortized discounts and costs, the total long-term debt recorded was $46.547 billion [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "GOOGL_10-K_2026-02-05_Item 8_32",
+        "GOOGL_10-K_2026-02-05_Item 8_20",
+        "GOOGL_10-K_2026-02-05_Item 8_3",
+        "GOOGL_10-K_2026-02-05_Item 8_5",
+        "GOOGL_10-K_2026-02-05_Item 8_33",
+        "GOOGL_10-K_2026-02-05_Item 1A_18",
+        "GOOGL_10-K_2026-02-05_Item 7_14",
+        "GOOGL_10-K_2026-02-05_Item 8_42"
+      ],
+      "citation_rows": 2
+    },
+    {
+      "id": "googl_002",
+      "ticker": "GOOGL",
+      "credit": true,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_20",
+          "item": "Item 8",
+          "distance": 0.43023931980133057
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1A_18",
+          "item": "Item 1A",
+          "distance": 0.4384361505508423
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_3",
+          "item": "Item 8",
+          "distance": 0.4457697868347168
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_10",
+          "item": "Item 7",
+          "distance": 0.45195460319519043
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_42",
+          "item": "Item 8",
+          "distance": 0.4530068635940552
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_6",
+          "item": "Item 8",
+          "distance": 0.45473092794418335
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_5",
+          "item": "Item 8",
+          "distance": 0.4608929753303528
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_33",
+          "item": "Item 8",
+          "distance": 0.46236127614974976
+        }
+      ],
+      "ok": true,
+      "answer": "As of December 31, 2025, Alphabet Inc. had $30.708 billion in cash and cash equivalents [Source 1]. The company's total cash, cash equivalents, and marketable securities amounted to $126.843 billion [Source 3]. Alphabet's liquidity primarily comes from its cash flow generated from operations, with significant contributions from advertising revenues and other services provided by its Google segment [Source 4]. The company also engages in financing activities and investing in marketable securities to manage its liquidity [Source 6].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "GOOGL_10-K_2026-02-05_Item 8_20",
+        "GOOGL_10-K_2026-02-05_Item 1A_18",
+        "GOOGL_10-K_2026-02-05_Item 8_3",
+        "GOOGL_10-K_2026-02-05_Item 7_10",
+        "GOOGL_10-K_2026-02-05_Item 8_42",
+        "GOOGL_10-K_2026-02-05_Item 8_6",
+        "GOOGL_10-K_2026-02-05_Item 8_5",
+        "GOOGL_10-K_2026-02-05_Item 8_33"
+      ],
+      "citation_rows": 4
+    },
+    {
+      "id": "googl_003",
+      "ticker": "GOOGL",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1A"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_38",
+          "item": "Item 8",
+          "distance": 0.2941367030143738
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_37",
+          "item": "Item 8",
+          "distance": 0.32464098930358887
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_39",
+          "item": "Item 8",
+          "distance": 0.36077165603637695
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1A_14",
+          "item": "Item 1A",
+          "distance": 0.3663012385368347
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_40",
+          "item": "Item 8",
+          "distance": 0.429246187210083
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1_3",
+          "item": "Item 1",
+          "distance": 0.45165467262268066
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1A_12",
+          "item": "Item 1A",
+          "distance": 0.4628618359565735
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.4661083221435547
+        }
+      ],
+      "ok": true,
+      "answer": "Google is facing several antitrust cases, including:\n\n1. Shopping: The European Commission (EC) fined Google \u20ac2.4 billion in June 2017 for actions related to its display and ranking of shopping search results and ads [Source 1].\n\n2. Android: The EC announced a fine of \u20ac4.3 billion in July 2018 due to certain provisions in Google's Android distribution agreements. This fine was affirmed and slightly reduced to \u20ac4.1 billion by the General Court, with Google's appeal pending [Source 1].\n\n3. AdSense for Search: The EC imposed a \u20ac1.5 billion fine in March 2019 for certain agreements with AdSense partners, which was later overturned by the General Court, and the EC's appeal is pending [Source 1].\n\n4. Search: A lawsuit by the U.S. Department of Justice (DOJ) and state Attorneys General concerning Google's search and advertising practices resulted in a ruling against Google, which is under appeal [Source 1].\n\n5. Advertising Technology: Ongoing cases in the U.S. involve lawsuits by state Attorneys General and the DOJ, with various decisions pending or under appeal related to Google's advertising technology [Source 3].\n\n6. Google Play: A settlement is pending court approval in a lawsuit involving Google's operation of Android and Google Play, related to antitrust laws in the U.S. [Source 3].\n\n7. European Digital Markets Act: Investigations are ongoing in Europe regarding Google's compliance with the Digital Markets Act related to Google Play and Search [Source 5].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "GOOGL_10-K_2026-02-05_Item 8_38",
+        "GOOGL_10-K_2026-02-05_Item 8_37",
+        "GOOGL_10-K_2026-02-05_Item 8_39",
+        "GOOGL_10-K_2026-02-05_Item 1A_14",
+        "GOOGL_10-K_2026-02-05_Item 8_40",
+        "GOOGL_10-K_2026-02-05_Item 1_3",
+        "GOOGL_10-K_2026-02-05_Item 1A_12",
+        "GOOGL_10-K_2026-02-05_Item 7_2"
+      ],
+      "citation_rows": 7
+    },
+    {
+      "id": "googl_004",
+      "ticker": "GOOGL",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 1"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_1",
+          "item": "Item 7",
+          "distance": 0.4684975743293762
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_52",
+          "item": "Item 8",
+          "distance": 0.4714646339416504
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_0",
+          "item": "Item 7",
+          "distance": 0.493274986743927
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1_3",
+          "item": "Item 1",
+          "distance": 0.49661630392074585
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_8",
+          "item": "Item 8",
+          "distance": 0.5110127925872803
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 1_6",
+          "item": "Item 1",
+          "distance": 0.5110763907432556
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_3",
+          "item": "Item 7",
+          "distance": 0.5113159418106079
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_4",
+          "item": "Item 8",
+          "distance": 0.5215107202529907
+        }
+      ],
+      "ok": true,
+      "answer": "Alphabet's business segments are as follows:\n\n1. **Google Services**: This segment includes a wide array of products and services such as Google Search, YouTube, Google Play, and more [Source 1].\n\n2. **Google Cloud**: This encompasses the Google Cloud Platform and Google Workspace, generating revenues primarily from consumption-based fees and subscriptions for infrastructure, platform services, applications, and other services [Sources 1, 4].\n\n3. **Other Bets**: This segment includes various non-Google businesses, which are collectively managed. The revenues in this category are primarily from autonomous transportation services and internet services [Sources 1, 2, 4].\n\nThese segments are the primary structure under which Alphabet reports its operations and financials [Source 1].",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "GOOGL_10-K_2026-02-05_Item 7_1",
+        "GOOGL_10-K_2026-02-05_Item 8_52",
+        "GOOGL_10-K_2026-02-05_Item 7_0",
+        "GOOGL_10-K_2026-02-05_Item 1_3",
+        "GOOGL_10-K_2026-02-05_Item 8_8",
+        "GOOGL_10-K_2026-02-05_Item 1_6",
+        "GOOGL_10-K_2026-02-05_Item 7_3",
+        "GOOGL_10-K_2026-02-05_Item 8_4"
+      ],
+      "citation_rows": 7
+    },
+    {
+      "id": "googl_005",
+      "ticker": "GOOGL",
+      "credit": false,
+      "should_refuse": false,
+      "expected_items": [
+        "Item 7"
+      ],
+      "hit": true,
+      "retrieved": [
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_8",
+          "item": "Item 7",
+          "distance": 0.4241974949836731
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_6",
+          "item": "Item 7",
+          "distance": 0.43892544507980347
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_5",
+          "item": "Item 7",
+          "distance": 0.44653600454330444
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_10",
+          "item": "Item 7",
+          "distance": 0.45421385765075684
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_19",
+          "item": "Item 8",
+          "distance": 0.4565160870552063
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_7",
+          "item": "Item 7",
+          "distance": 0.46088701486587524
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 7_2",
+          "item": "Item 7",
+          "distance": 0.46152204275131226
+        },
+        {
+          "id": "GOOGL_10-K_2026-02-05_Item 8_53",
+          "item": "Item 8",
+          "distance": 0.4667426347732544
+        }
+      ],
+      "ok": true,
+      "answer": "The provided excerpts do not specify whether Google plans to increase its capital expenditures (capex) in the upcoming year beyond 2025. The latest information available is that Alphabet's capex for the year ended December 31, 2025, was $91.4 billion, primarily reflecting investments in technical infrastructure [Source 2]. There is no mention of future capex plans or guidance for 2026 or beyond.",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "GOOGL_10-K_2026-02-05_Item 7_8",
+        "GOOGL_10-K_2026-02-05_Item 7_6",
+        "GOOGL_10-K_2026-02-05_Item 7_5",
+        "GOOGL_10-K_2026-02-05_Item 7_10",
+        "GOOGL_10-K_2026-02-05_Item 8_19",
+        "GOOGL_10-K_2026-02-05_Item 7_7",
+        "GOOGL_10-K_2026-02-05_Item 7_2",
+        "GOOGL_10-K_2026-02-05_Item 8_53"
+      ],
+      "citation_rows": 1
+    },
+    {
+      "id": "nvda_005",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": true,
+      "ok": true,
+      "answer": "The provided excerpts do not contain any specific information about NVIDIA's stance or activities related to quantum computing. The focus in the documents is primarily on AI, accelerated computing, data centers, and related technologies.",
+      "refusal_phrase": "do not contain",
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 1_4",
+        "NVDA_10-K_2026-02-25_Item 1_7",
+        "NVDA_10-K_2026-02-25_Item 1_0",
+        "NVDA_10-K_2026-02-25_Item 1_3",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 1_5",
+        "NVDA_10-K_2026-02-25_Item 1_2",
+        "NVDA_10-K_2026-02-25_Item 1_18"
+      ]
+    },
+    {
+      "id": "nvda_011",
+      "ticker": "NVDA",
+      "credit": false,
+      "should_refuse": true,
+      "ok": true,
+      "answer": "The provided excerpts do not contain specific information about NVIDIA's revenue from the Nintendo Switch 2 chip. There is no mention of the Nintendo Switch 2 chip or related financial details in the excerpts given.",
+      "refusal_phrase": "do not contain",
+      "answer_sources": [
+        "NVDA_10-K_2026-02-25_Item 7_9",
+        "NVDA_10-K_2026-02-25_Item 15_36",
+        "NVDA_10-K_2026-02-25_Item 15_34",
+        "NVDA_10-K_2026-02-25_Item 7_1",
+        "NVDA_10-K_2026-02-25_Item 7_10",
+        "NVDA_10-K_2026-02-25_Item 15_35",
+        "NVDA_10-K_2026-02-25_Item 15_3",
+        "NVDA_10-K_2026-02-25_Item 7_7"
+      ]
+    },
+    {
+      "id": "amd_006",
+      "ticker": "AMD",
+      "credit": false,
+      "should_refuse": true,
+      "ok": true,
+      "answer": "The provided excerpts do not mention AMD making chips specifically for smartphones. The excerpts focus on AMD's product offerings for PCs, servers, data centers, gaming consoles, and embedded systems but do not discuss smartphone chips. Thus, there is no information available about AMD manufacturing chips for smartphones in these excerpts.",
+      "refusal_phrase": "no information",
+      "answer_sources": [
+        "AMD_10-K_2026-02-04_Item 1_5",
+        "AMD_10-K_2026-02-04_Item 1_19",
+        "AMD_10-K_2026-02-04_Item 1_6",
+        "AMD_10-K_2026-02-04_Item 1_9",
+        "AMD_10-K_2026-02-04_Item 1_4",
+        "AMD_10-K_2026-02-04_Item 1_1",
+        "AMD_10-K_2026-02-04_Item 8_5",
+        "AMD_10-K_2026-02-04_Item 1_10"
+      ]
+    },
+    {
+      "id": "msft_006",
+      "ticker": "MSFT",
+      "credit": false,
+      "should_refuse": true,
+      "ok": true,
+      "answer": "The provided excerpts do not discuss whether Microsoft holds any bitcoin. There is no mention of bitcoin or cryptocurrency holdings in the excerpts from the 10-K filing.",
+      "refusal_phrase": null,
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 1_0",
+        "MSFT_10-K_2026-07-29_Item 1_6",
+        "MSFT_10-K_2026-07-29_Item 1_11",
+        "MSFT_10-K_2026-07-29_Item 1_5",
+        "MSFT_10-K_2026-07-29_Item 1_3",
+        "MSFT_10-K_2026-07-29_Item 8_33",
+        "MSFT_10-K_2026-07-29_Item 8_32"
+      ]
+    },
+    {
+      "id": "msft_007",
+      "ticker": "MSFT",
+      "credit": false,
+      "should_refuse": true,
+      "ok": true,
+      "answer": "The provided excerpts from Microsoft's 10-K filings do not contain any information about Microsoft trying to buy TikTok. If there were details about such an acquisition, they would likely appear in the Business section or the Management's Discussion and Analysis; however, no such information is present in the given excerpts.",
+      "refusal_phrase": "do not contain",
+      "answer_sources": [
+        "MSFT_10-K_2026-07-29_Item 7_0",
+        "MSFT_10-K_2026-07-29_Item 1_0",
+        "MSFT_10-K_2026-07-29_Item 1_6",
+        "MSFT_10-K_2026-07-29_Item 1_3",
+        "MSFT_10-K_2026-07-29_Item 1_5",
+        "MSFT_10-K_2026-07-29_Item 1_9",
+        "MSFT_10-K_2026-07-29_Item 1_2",
+        "MSFT_10-K_2026-07-29_Item 1A_15"
+      ]
+    },
+    {
+      "id": "googl_006",
+      "ticker": "GOOGL",
+      "credit": false,
+      "should_refuse": true,
+      "ok": true,
+      "answer": "The provided excerpts do not mention whether Alphabet is planning another stock split.",
+      "refusal_phrase": "do not mention",
+      "answer_sources": [
+        "GOOGL_10-K_2026-02-05_Item 8_42",
+        "GOOGL_10-K_2026-02-05_Item 1A_18",
+        "GOOGL_10-K_2026-02-05_Item 8_5",
+        "GOOGL_10-K_2026-02-05_Item 8_44",
+        "GOOGL_10-K_2026-02-05_Item 8_45",
+        "GOOGL_10-K_2026-02-05_Item 8_43",
+        "GOOGL_10-K_2026-02-05_Item 8_3",
+        "GOOGL_10-K_2026-02-05_Item 8_41"
+      ]
+    }
+  ]
+}
