@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 
 from src.analyze.risk_diff import load_risk_diff
 from src.api.keys import lookup
+from src.api.limits import LimitExceeded, record_tokens, refund, reserve
 from src.config import WATCHLIST_PATH
 from src.generate.refusal import is_refusal
 from src.index.store import _chunk_id
@@ -34,6 +35,13 @@ def require_key(authorization: str | None = Header(default=None)) -> dict:
     if row is None:
         raise HTTPException(401, "invalid or missing API key", headers={"WWW-Authenticate": "Bearer"})
     return row
+
+
+def reserve_or_429(key: dict):
+    try:
+        return reserve(key)
+    except LimitExceeded as e:
+        raise HTTPException(429, e.message, headers={"Retry-After": str(e.retry_after)})
 
 
 def watchlist() -> list[str]:
@@ -78,9 +86,16 @@ def ask_endpoint(body: AskRequest, key: dict = Depends(require_key)):
     if ticker and ticker not in watchlist():
         raise HTTPException(422, f"unknown ticker {ticker!r}; see GET /tickers")
 
-    res = ask(body.question, k=body.k, ticker=ticker)
+    reservation = reserve_or_429(key)
+    try:
+        res = ask(body.question, k=body.k, ticker=ticker)
+    except BaseException:
+        refund(reservation)
+        raise
     if not res["ok"]:
+        refund(reservation)
         raise HTTPException(502, res["answer"])
+    record_tokens(reservation, sum(res["usage"].values()))
 
     sources = []
     for n, c in enumerate(res["sources_used"], 1):
@@ -93,8 +108,10 @@ def ask_endpoint(body: AskRequest, key: dict = Depends(require_key)):
 
 @app.get("/risk-diff/{ticker}")
 def risk_diff(ticker: str, key: dict = Depends(require_key)):
+    reservation = reserve_or_429(key)
     d = load_risk_diff(ticker)
     if d is None:
+        refund(reservation)
         raise HTTPException(404, f"no cached risk diff for {ticker.upper()}; "
                                  f"run python -m scripts.ingest_watchlist to compute it")
     return d

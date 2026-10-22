@@ -59,13 +59,16 @@ def get_collection():
     )
 
 
-def _embed_batch(texts: list[str]) -> list[list[float]]:
-    """Embed a batch of texts via OpenAI. Order of output matches input."""
+def _embed_batch(texts: list[str]) -> tuple[list[list[float]], int]:
+    """
+    Embed a batch of texts via OpenAI. Order of output matches input.
+    Returns (embeddings, tokens), where tokens is OpenAI's reported usage.
+    """
     client = _get_openai()
     resp = client.embeddings.create(model=EMBED_MODEL, input=texts)
     # The API returns objects in input order, but sort by index to be safe.
     items = sorted(resp.data, key=lambda d: d.index)
-    return [item.embedding for item in items]
+    return [item.embedding for item in items], resp.usage.total_tokens
 
 
 def embed_texts(texts: list[str]) -> list[list[float]]:
@@ -76,8 +79,14 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
     embeddings: list[list[float]] = []
     for start in range(0, len(texts), EMBED_BATCH_SIZE):
         batch = texts[start:start + EMBED_BATCH_SIZE]
-        embeddings.extend(_embed_batch(batch))
+        embeddings.extend(_embed_batch(batch)[0])
     return embeddings
+
+
+def embed_query(text: str) -> tuple[list[float], int]:
+    """Embed one query. Returns (embedding, tokens) so callers can meter usage."""
+    embeddings, tokens = _embed_batch([text])
+    return embeddings[0], tokens
 
 
 # ---------------------------------------------------------------------------
@@ -105,7 +114,7 @@ def embed_and_store(chunks, batch_size=100):
         texts = [c.text for c in batch]
         metas = [c.metadata for c in batch]
         ids = [_chunk_id(m) for m in metas]
-        embeddings = _embed_batch(texts)
+        embeddings, _ = _embed_batch(texts)
         col.upsert(                       # CHANGED: was col.add(...)
             documents=texts,
             embeddings=embeddings,

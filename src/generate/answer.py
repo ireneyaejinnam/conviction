@@ -14,7 +14,8 @@ def format_context(chunks: list[dict]) -> str:
         lines.append(f"{header}\n{c['text']}")
     return "\n\n".join(lines)
 
-def answer(question: str, chunks: list[dict]) -> str:
+def answer(question: str, chunks: list[dict]) -> tuple[str, dict]:
+    """Returns (text, usage), usage being OpenAI's prompt_tokens and completion_tokens."""
     client = OpenAI()
     context = format_context(chunks)
     resp = client.chat.completions.create(
@@ -24,4 +25,6 @@ def answer(question: str, chunks: list[dict]) -> str:
             {"role": "user", "content": f"Question: {question}\n\nContext:\n{context}"}
         ]
     )
-    return resp.choices[0].message.content
+    usage = {"prompt_tokens": resp.usage.prompt_tokens,
+             "completion_tokens": resp.usage.completion_tokens}
+    return resp.choices[0].message.content, usage
