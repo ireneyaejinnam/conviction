@@ -10,3 +10,4 @@ data/transcripts/
 DECISIONS.md
 RECOVERY_NOTES.md
 .idea/
+data/app.db

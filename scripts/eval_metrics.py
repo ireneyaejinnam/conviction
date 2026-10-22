@@ -33,6 +33,7 @@ import sys
 from datetime import datetime
 
 from src.config import EVAL_DIR, ROOT
+from src.generate.refusal import REFUSAL_PHRASES, refusal_phrase
 from src.index.store import _chunk_id, get_collection
 from src.pipeline import ask
 from src.retrieve.search import search
@@ -41,26 +42,12 @@ EVAL_PATH = EVAL_DIR / "conviction.jsonl"
 CSV_PATH = EVAL_DIR / "citations_to_label.csv"
 K = 8
 
-REFUSAL_PHRASES = [
-    "do not contain", "does not contain", "don't contain", "doesn't contain",
-    "not mentioned", "no information", "not addressed", "cannot answer",
-    "not covered", "does not mention", "do not mention", "not discussed",
-    "does not provide", "do not provide",
-    "do not discuss", "does not discuss", "no mention", "do not include",
-    "does not include", "cannot determine", "do not indicate", "does not indicate",
-]
 
 CSV_COLUMNS = ["row_id", "q_id", "ticker", "question", "claim", "source_n",
                "cited_item", "chunk_id", "chunk_text", "supports", "note"]
 
 # "[Source 3]", "[Source 4, Source 5]", "[Sources 1, 2]"
 CITATION_RE = re.compile(r"\[Sources?\s*\d+(?:\s*,\s*(?:Source\s*)?\d+)*\]", re.I)
-
-
-def refusal_phrase(text: str) -> str | None:
-    """The first refusal phrase found in text, or None."""
-    lower = text.lower()
-    return next((p for p in REFUSAL_PHRASES if p in lower), None)
 
 
 def split_sentences(text: str) -> list[str]:
