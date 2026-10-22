@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-# curl is only here for the HEALTHCHECK below.
+# curl is only here for the healthchecks in docker-compose.yml.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/*
@@ -20,9 +20,8 @@ ENV CONVICTION_DATA_DIR=/data \
 
 USER app
 
-EXPOSE 8501
-
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-    CMD curl -fsS http://localhost:8501/_stcore/health || exit 1
+# 8501: Streamlit (app service), 8000: FastAPI (api service). Healthchecks
+# live in docker-compose.yml, one per service.
+EXPOSE 8501 8000
 
 CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true", "--browser.gatherUsageStats=false"]
