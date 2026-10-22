@@ -42,6 +42,8 @@ From `python -m scripts.stats`:
 
 ## Method
 
+Every question and its expected Item and evidence passage was reviewed against the filing and approved by hand before the run.
+
 **Item-level hit@8.** A question counts as a hit if any of its 8 retrieved chunks comes from a 10-K item listed in its `expected_items`. When a question lists more than one item, a chunk from any one of them is enough, so multi-item questions can hit on one item alone (nvda_002 expects Item 1A and Item 15 and hit on Item 15 only).
 
 **Chunk-level hit@8.** A question counts as a hit only if its `evidence_chunk_id`, the chunk holding the quoted evidence sentence, is among the 8 retrieved ids.
