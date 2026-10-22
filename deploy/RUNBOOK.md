@@ -33,27 +33,57 @@ git pull && docker compose up -d --build
 Data in `/srv/conviction-data` and Caddy's certificates (the `caddy_data`
 volume) survive rebuilds.
 
+If the Caddyfile changes, run `docker compose up -d --force-recreate caddy`
+(a `git pull` does not reload it).
+
 ## Logs
 
 On the instance:
 
 ```bash
-docker compose logs -f app          # or: caddy
+docker compose logs -f app          # or: api, caddy
 docker compose logs --tail 100 app
 ```
 
-In CloudWatch: region **us-east-1**, log group **`conviction`**, streams
-`app` and `caddy` (Console → CloudWatch → Logs → Log groups → `conviction`).
+In CloudWatch: region **us-east-2**, log group **`conviction`**, streams
+`app`, `api` and `caddy` (Console → CloudWatch → Logs → Log groups →
+`conviction`). The `api` stream has one JSON line per request.
 From a machine with the AWS CLI:
 
 ```bash
-aws logs tail conviction --region us-east-1 --log-stream-names app --follow
+aws logs tail conviction --region us-east-2 --log-stream-names api --follow
 ```
 
 ## API keys
 
-Placeholder: key management arrives in Phase 3 (`scripts/create_key.py`).
-Not built yet.
+Keys live in `app.db` in the data dir. The plaintext is printed once at
+creation; only its SHA-256 hash is stored, so a lost key can't be recovered,
+only revoked and replaced.
+
+```bash
+# Create (defaults: --rph 30, --daily-tokens 200000)
+docker compose exec api python -m scripts.create_key --name alice
+
+# Revoke
+docker compose exec api python -m scripts.revoke_key --name alice
+```
+
+Names are unique and stay taken after a revoke, so a replacement key needs a
+new name.
+
+### Demo key
+
+The public page uses `DEMO_API_KEY` when a visitor doesn't enter a key.
+
+1. Create it, passing `--rph` and `--daily-tokens` lower than the defaults
+   since anyone on the page shares it:
+   `docker compose exec api python -m scripts.create_key --name demo --rph <n> --daily-tokens <n>`
+2. Put the printed key in `.env` as `DEMO_API_KEY=cv_...`.
+3. Recreate the app so it reads the new value:
+   `docker compose up -d --force-recreate app`
+
+To rotate it, revoke `demo`, create a key under a new name, and repeat
+steps 2 and 3.
 
 ## Stop and start the stack
 
@@ -76,8 +106,8 @@ Console: EC2 → Instances → select the instance → Instance state → **Stop
 (not Terminate). Start it the same way. Or with the AWS CLI:
 
 ```bash
-aws ec2 stop-instances  --region us-east-1 --instance-ids <instance-id>
-aws ec2 start-instances --region us-east-1 --instance-ids <instance-id>
+aws ec2 stop-instances  --region us-east-2 --instance-ids <instance-id>
+aws ec2 start-instances --region us-east-2 --instance-ids <instance-id>
 ```
 
 A stopped instance stops compute billing, but the EBS volume and the Elastic
