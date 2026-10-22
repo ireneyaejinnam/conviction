@@ -8,11 +8,10 @@ None, cost_usd is logged as null rather than guessed.
 
 from __future__ import annotations
 
-PRICES_CHECKED = None              # TODO: "YYYY-MM-DD"
-
-GPT_4O_INPUT_PER_1M = None         # TODO
-GPT_4O_OUTPUT_PER_1M = None        # TODO
-EMBEDDING_3_SMALL_PER_1M = None    # TODO
+PRICES_CHECKED = "2026-10-22"
+GPT_4O_INPUT_PER_1M = 2.50
+GPT_4O_OUTPUT_PER_1M = 10.00
+EMBEDDING_3_SMALL_PER_1M = 0.02
 
 
 def cost_usd(embedding_tokens: int, prompt_tokens: int, completion_tokens: int) -> float | None:
