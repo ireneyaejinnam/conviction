@@ -1,23 +1,33 @@
 import streamlit as st
 from dotenv import load_dotenv
 
-from src.pipeline import ask
-from src.index.store import get_collection
-from src.analyze.risk_diff import load_risk_diff
+from src.api.client import call
 
 load_dotenv()
 st.set_page_config(page_title="Conviction", page_icon="📄", layout="wide")
 st.title("Conviction")
 st.caption("A personal investor's decision-support agent grounded in cited SEC filings.")
 
-@st.cache_data(show_spinner=False)
+DEFAULT_TICKERS = ["NVDA", "AMD", "MSFT", "GOOGL"]
+
+with st.sidebar:
+    user_key = st.text_input("Your API key (optional)", type="password",
+                             help="Leave blank to use the shared demo key.")
+
+
 def available_tickers():
-    try:
-        col = get_collection()
-        metas = col.get(include=["metadatas"], limit=5000)["metadatas"]
-        return sorted({m["ticker"] for m in metas if m and "ticker" in m})
-    except Exception as e:
-        return ["NVDA", "AMD", "MSFT", "GOOGL"]
+    if "tickers" not in st.session_state:
+        res = call("GET", "/tickers", user_key)
+        if not res.ok:
+            return DEFAULT_TICKERS
+        st.session_state["tickers"] = res.data["tickers"]
+    return st.session_state["tickers"]
+
+
+def request_id_caption(res):
+    if res.request_id:
+        st.caption(f"request ID: {res.request_id}")
+
 
 tickers = available_tickers()
 tab_ask, tab_diff = st.tabs(["Ask", "Risk Diff"])
@@ -27,7 +37,6 @@ with tab_ask:
     with st.sidebar:
         st.header("Scope")
         ticker = st.selectbox("Ticker", ["(all)"]+tickers, index=0)
-        doc_type = st.selectbox("Document type", ["(all)", "10-K"], index=1)
         k = st.slider("Chunks retrieved (k)", 3, 12, 8)
         st.caption("Scoping to one ticker prevents cross-company bleed in results.")
 
@@ -42,30 +51,32 @@ with tab_ask:
 
     question = st.text_input("Ask a question about a filing", key="q")
     if question:
-        with st.spinner("Retrieving results..."):
-            result = ask(question,
-                         k=k,
-                         ticker=None if ticker == "(all)" else ticker,
-                         doc_type=None if doc_type == "(all)" else doc_type,)
+        # Reruns (e.g. opening the other tab) shouldn't re-ask and spend the key's quota.
+        sig = (question, ticker, k, user_key)
+        if st.session_state.get("ask_sig") != sig:
+            with st.spinner("Retrieving results..."):
+                st.session_state["ask_res"] = call(
+                    "POST", "/ask", user_key,
+                    json={"question": question, "k": k,
+                          "ticker": None if ticker == "(all)" else ticker})
+            st.session_state["ask_sig"] = sig
+        result = st.session_state["ask_res"]
 
-        if not result["ok"]:
-            st.warning(result["answer"])
+        if not result.ok:
+            st.warning(result.error)
         else:
             st.markdown("### Answer")
-            st.markdown(result["answer"])
+            st.markdown(result.data["answer"])
+        request_id_caption(result)
 
-        sources = result.get("sources_used", [])
+        sources = result.data["sources"] if result.ok else []
         if sources:
             st.markdown("### Sources")
-            for i, s in enumerate(sources, 1):
-                m = s.get("metadata", {})
-                label = (f"[{i}] {m.get('ticker', '?')} {m.get('filing_type', '?')} — "
-                         f"{m.get('item', '?')} · {m.get('item_title', '')}")
+            for s in sources:
+                label = (f"[{s['n']}] {s['ticker']} 10-K {s['filing_date']} — "
+                         f"{s['item']} · {s['item_title']}")
                 with st.expander(label):
-                    d = s.get("distance")
-                    if d is not None:
-                        st.caption(f"distance = {d:.3f}")
-                    st.write((s.get("text") or "")[:1500])
+                    st.write(s["text"][:1500])
 
 # ---------- Risk Diff ----------
 with tab_diff:
@@ -74,10 +85,14 @@ with tab_diff:
 
     dt = st.selectbox("Company", tickers, key="diff_ticker")
     if st.button("Show diff", type="primary"):
-        d = load_risk_diff(dt)
-        if d is None:
+        res = call("GET", f"/risk-diff/{dt}", user_key, ok_statuses=(200, 404))
+        if not res.ok:
+            st.warning(res.error)
+            request_id_caption(res)
+        elif res.status == 404:
             st.info(f"No precomputed diff for {dt}. Run: python -m scripts.ingest_watchlist")
         else:
+            d = res.data
             st.caption(f"{d['prior_year']} → {d['current_year']}")
             diff = d.get("diff", {})
             new = diff.get("new",[])
