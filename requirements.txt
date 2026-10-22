@@ -1,7 +1,10 @@
 beautifulsoup4==4.14.3
 chromadb==1.5.9
+fastapi==0.161.0
+httpx==0.28.1
 openai==2.38.0
 python-dotenv==1.2.2
 sec-edgar-downloader==5.1.0
 streamlit==1.59.2
 tiktoken==0.13.0
+uvicorn[standard]==0.54.0

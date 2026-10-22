@@ -1,3 +1,9 @@
 {$DOMAIN} {
-	reverse_proxy app:8501
+	# /api/ask -> api:8000/ask
+	handle_path /api/* {
+		reverse_proxy api:8000
+	}
+	handle {
+		reverse_proxy app:8501
+	}
 }
