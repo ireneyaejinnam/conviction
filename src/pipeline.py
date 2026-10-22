@@ -1,3 +1,5 @@
+import time
+
 from src.retrieve.search import search_with_usage
 from src.generate.answer import answer
 
@@ -27,7 +29,7 @@ def ask(question, k=8, ticker=None, doc_type=None):
     filters = build_filters(ticker, doc_type)
 
     try:
-        chunks, embed_tokens = search_with_usage(question, k=k, filters=filters)
+        chunks, info = search_with_usage(question, k=k, filters=filters)
     except Exception as e:
         return {"answer": f"Retrieval failed: {type(e).__name__}. "
                           f"Is the Chroma store built? Try `python -m scripts.ingest_watchlist`.",
@@ -37,11 +39,14 @@ def ask(question, k=8, ticker=None, doc_type=None):
         return {"answer": "No results found.", "sources_used": [], "ok": False}
 
     try:
+        t0 = time.perf_counter()
         text, usage = answer(question, chunks)
+        generate_ms = (time.perf_counter() - t0) * 1000
     except Exception as e:
         return {"answer": f"Generation failed: {type(e).__name__}. "
                           f"Check your OpenAI API key and rate limits.",
                 "sources_used": chunks, "ok": False}
 
-    usage["embedding_tokens"] = embed_tokens
-    return {"answer": text, "sources_used": chunks, "ok": True, "usage": usage}
+    usage["embedding_tokens"] = info["embedding_tokens"]
+    latency_ms = {"embed": info["embed_ms"], "retrieve": info["retrieve_ms"], "generate": generate_ms}
+    return {"answer": text, "sources_used": chunks, "ok": True, "usage": usage, "latency_ms": latency_ms}

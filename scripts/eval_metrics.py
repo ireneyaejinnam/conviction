@@ -33,6 +33,7 @@ import sys
 from datetime import datetime
 
 from src.config import EVAL_DIR, ROOT
+from src.generate.citations import CITATION_RE, source_numbers
 from src.generate.refusal import REFUSAL_PHRASES, refusal_phrase
 from src.index.store import _chunk_id, get_collection
 from src.pipeline import ask
@@ -46,9 +47,6 @@ K = 8
 CSV_COLUMNS = ["row_id", "q_id", "ticker", "question", "claim", "source_n",
                "cited_item", "chunk_id", "chunk_text", "supports", "note"]
 
-# "[Source 3]", "[Source 4, Source 5]", "[Sources 1, 2]"
-CITATION_RE = re.compile(r"\[Sources?\s*\d+(?:\s*,\s*(?:Source\s*)?\d+)*\]", re.I)
-
 
 def split_sentences(text: str) -> list[str]:
     parts = []
@@ -61,7 +59,7 @@ def citation_rows(row: dict, answer: str, sources: list[dict]) -> list[dict]:
     out = []
     for sentence in split_sentences(answer):
         for cite in CITATION_RE.findall(sentence):
-            for n in (int(x) for x in re.findall(r"\d+", cite)):
+            for n in source_numbers(cite):
                 if 1 <= n <= len(sources):
                     meta = sources[n - 1]["metadata"]
                     cited_item, chunk_id, chunk_text = meta["item"], _chunk_id(meta), sources[n - 1]["text"]

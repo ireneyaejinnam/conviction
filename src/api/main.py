@@ -16,12 +16,16 @@ from pydantic import BaseModel, Field
 from src.analyze.risk_diff import load_risk_diff
 from src.api.keys import lookup
 from src.api.limits import LimitExceeded, record_tokens, refund, reserve
+from src.api.pricing import cost_usd
+from src.api.request_log import log_requests, question_fields
 from src.config import WATCHLIST_PATH
+from src.generate.citations import cited_sources
 from src.generate.refusal import is_refusal
 from src.index.store import _chunk_id
 from src.pipeline import ask
 
 app = FastAPI(title="Conviction API")
+app.middleware("http")(log_requests)
 
 
 @app.exception_handler(HTTPException)
@@ -29,11 +33,12 @@ def http_error(request: Request, exc: HTTPException):
     return JSONResponse({"error": exc.detail}, status_code=exc.status_code, headers=exc.headers)
 
 
-def require_key(authorization: str | None = Header(default=None)) -> dict:
+def require_key(request: Request, authorization: str | None = Header(default=None)) -> dict:
     scheme, _, key = (authorization or "").partition(" ")
     row = lookup(key.strip()) if scheme.lower() == "bearer" and key.strip() else None
     if row is None:
         raise HTTPException(401, "invalid or missing API key", headers={"WWW-Authenticate": "Bearer"})
+    request.state.log["key_name"] = row["name"]
     return row
 
 
@@ -81,8 +86,10 @@ def tickers(key: dict = Depends(require_key)):
 
 
 @app.post("/ask", response_model=AskResponse)
-def ask_endpoint(body: AskRequest, key: dict = Depends(require_key)):
+def ask_endpoint(body: AskRequest, request: Request, key: dict = Depends(require_key)):
     ticker = body.ticker.upper().strip() if body.ticker else None
+    log = request.state.log
+    log.update(ticker=ticker, **question_fields(body.question))
     if ticker and ticker not in watchlist():
         raise HTTPException(422, f"unknown ticker {ticker!r}; see GET /tickers")
 
@@ -95,7 +102,15 @@ def ask_endpoint(body: AskRequest, key: dict = Depends(require_key)):
     if not res["ok"]:
         refund(reservation)
         raise HTTPException(502, res["answer"])
-    record_tokens(reservation, sum(res["usage"].values()))
+    usage = res["usage"]
+    record_tokens(reservation, sum(usage.values()))
+    refused = is_refusal(res["answer"])
+    tokens = {"embedding": usage["embedding_tokens"], "prompt": usage["prompt_tokens"],
+              "completion": usage["completion_tokens"]}
+    log.update(chunk_ids=[_chunk_id(c["metadata"]) for c in res["sources_used"]],
+               distances=[round(c["distance"], 4) for c in res["sources_used"]],
+               cited_sources=cited_sources(res["answer"]), refused=refused,
+               latency_ms=res["latency_ms"], tokens=tokens, cost_usd=cost_usd(*tokens.values()))
 
     sources = []
     for n, c in enumerate(res["sources_used"], 1):
@@ -103,11 +118,12 @@ def ask_endpoint(body: AskRequest, key: dict = Depends(require_key)):
         sources.append(Source(n=n, ticker=m["ticker"], item=m["item"], item_title=m["item_title"],
                               filing_date=m.get("filing_date", "n/a"), chunk_id=_chunk_id(m),
                               text=c["text"]))
-    return AskResponse(answer=res["answer"], refused=is_refusal(res["answer"]), sources=sources)
+    return AskResponse(answer=res["answer"], refused=refused, sources=sources)
 
 
 @app.get("/risk-diff/{ticker}")
-def risk_diff(ticker: str, key: dict = Depends(require_key)):
+def risk_diff(ticker: str, request: Request, key: dict = Depends(require_key)):
+    request.state.log["ticker"] = ticker.upper()
     reservation = reserve_or_429(key)
     d = load_risk_diff(ticker)
     if d is None:

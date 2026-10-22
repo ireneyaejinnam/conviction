@@ -8,6 +8,8 @@ work correctly.
 
 from __future__ import annotations
 
+import time
+
 from src.index.store import embed_query, get_collection
 
 
@@ -41,13 +43,18 @@ def search_with_usage(
     query: str,
     k: int = 8,
     filters: dict | None = None,
-) -> tuple[list[dict], int]:
-    """Same as search(), plus the query's embedding tokens as reported by OpenAI."""
+) -> tuple[list[dict], dict]:
+    """
+    Same as search(), plus an info dict: embedding_tokens (as reported by
+    OpenAI), embed_ms and retrieve_ms.
+    """
     if not query.strip():
         raise ValueError("search() called with empty query")
 
     # Embed the query with the same model used at indexing time.
+    t0 = time.perf_counter()
     query_embedding, embed_tokens = embed_query(query)
+    t1 = time.perf_counter()
 
     collection = get_collection()
 
@@ -56,11 +63,14 @@ def search_with_usage(
         n_results=k,
         where=filters,
     )
+    info = {"embedding_tokens": embed_tokens,
+            "embed_ms": (t1 - t0) * 1000,
+            "retrieve_ms": (time.perf_counter() - t1) * 1000}
 
     # Chroma returns each field as a list-of-lists (outer list per query;
     # we passed one query, so we always read index [0]).
     if not raw["ids"] or not raw["ids"][0]:
-        return [], embed_tokens
+        return [], info
 
     results: list[dict] = []
     for text, metadata, distance in zip(
@@ -74,4 +84,4 @@ def search_with_usage(
             "distance": distance,
         })
 
-    return results, embed_tokens
+    return results, info
