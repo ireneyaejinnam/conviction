@@ -1,0 +1,11 @@
+.git
+.venv
+.idea
+__pycache__
+*.pyc
+.env
+data/chroma
+data/filings
+data/diffs
+data-local
+*.db
