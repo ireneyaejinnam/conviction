@@ -1,0 +1,12 @@
+# Local override: log to json-file instead of CloudWatch, serve plain HTTP on :80.
+# docker compose -f docker-compose.yml -f docker-compose.local.yml up --build -d
+services:
+  app:
+    logging:
+      driver: json-file
+
+  caddy:
+    volumes:
+      - ./Caddyfile.local:/etc/caddy/Caddyfile:ro
+    logging:
+      driver: json-file
